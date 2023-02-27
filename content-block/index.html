@@ -46,9 +46,6 @@
         border-width: 2px 0 0;
         padding: 1.5rem 0;
       }
-      /* .section-header {
-        background-color: azure;
-      } */
       p,
       ul {
         font-family: Georgia, "Times New Roman", Times, serif;
@@ -61,6 +58,17 @@
         width: 100%;
         max-width: var(--p-max-width);
         text-align: center;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid grey;
+        border-collapse: collapse;
+      }
+      .no-borders table,
+      .no-borders th,
+      .no-borders td {
+        border: none;
       }
       .two-columns {
         display: flex;
@@ -87,7 +95,7 @@
         width: 100%;
       }
 
-      @media only screen and (max-width: 725) {
+      @media only screen and (max-width: 725px) {
         .two-columns {
           flex-direction: column;
         }
@@ -278,53 +286,54 @@
           Here we have the villages as rows, and the fertiliser level as
           columns.
         </p>
-
-        <table>
-          <tbody>
-            <tr>
-              <td>&nbsp;</td>
-              <td><strong>Low</strong></td>
-              <td><strong>Medium</strong></td>
-              <td><strong>High</strong></td>
-              <td><strong>Total</strong></td>
-            </tr>
-            <tr>
-              <td>Sabey</td>
-              <td>1</td>
-              <td>3</td>
-              <td>6</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>Kesen</td>
-              <td>3</td>
-              <td>2</td>
-              <td>2</td>
-              <td>7</td>
-            </tr>
-            <tr>
-              <td>Niko</td>
-              <td>4</td>
-              <td>1</td>
-              <td>0</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>Nanda</td>
-              <td>1</td>
-              <td>4</td>
-              <td>9</td>
-              <td>14</td>
-            </tr>
-            <tr>
-              <td>Total</td>
-              <td>9</td>
-              <td>10</td>
-              <td>17</td>
-              <td>36</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="no-borders">
+          <table>
+            <tbody>
+              <tr>
+                <td>&nbsp;</td>
+                <td><strong>Low</strong></td>
+                <td><strong>Medium</strong></td>
+                <td><strong>High</strong></td>
+                <td><strong>Total</strong></td>
+              </tr>
+              <tr>
+                <td>Sabey</td>
+                <td>1</td>
+                <td>3</td>
+                <td>6</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>Kesen</td>
+                <td>3</td>
+                <td>2</td>
+                <td>2</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>Niko</td>
+                <td>4</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Nanda</td>
+                <td>1</td>
+                <td>4</td>
+                <td>9</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>9</td>
+                <td>10</td>
+                <td>17</td>
+                <td>36</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div class="text-block">
           <p>
             Looking at this table, it is clear that the group sizes vary between
@@ -339,7 +348,7 @@
             group.
           </p>
         </div>
-        <div>
+        <div class="no-borders">
           <table>
             <tbody>
               <tr>
@@ -366,7 +375,7 @@
           </table>
         </div>
         <br />
-        <div>
+        <div class="no-borders">
           <table>
             <tbody>
               <tr>
@@ -409,6 +418,49 @@
             down to a variable that isn't measured in the data set, such as the
             soil type or the climate!
           </p>
+        </div>
+        <h3>What can go wrong?</h3>
+        <p>
+          If we didn’t identify the unbalance in the data, then the conclusions
+          could have been very different. An ANOVA is fitted with both
+          fertiliser and village as factors. An ANOVA table divides the
+          variability into the part that is accounted for, and the residual.
+          When the residual variability – the part that is not accounted for –
+          is low, then the information from the data becomes clear. In the ANOVA
+          table, the mean squares are roughly variances (a common measure of
+          variation). If just village is fitted, the village is found to
+          significantly affect the outcome variable. The variation between the
+          villages is quite large (464) compared with the residual value of 111.
+        </p>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td>&nbsp;</td>
+                <td>Df</td>
+                <td>Sum Sq</td>
+                <td>Mean Sq</td>
+                <td>F value</td>
+                <td>Pr(&gt;F)</td>
+              </tr>
+              <tr>
+                <td>village</td>
+                <td>3</td>
+                <td>1391.2</td>
+                <td>463.73</td>
+                <td>4.1642</td>
+                <td>0.01343</td>
+              </tr>
+              <tr>
+                <td>Residuals</td>
+                <td>32</td>
+                <td>3563.6</td>
+                <td>111.36</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
