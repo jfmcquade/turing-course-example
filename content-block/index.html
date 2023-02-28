@@ -1,554 +1,535 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Example page</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      .content-block {
-        background: transparent;
-        padding: 0 10%;
-        color: black;
-        height: 100vh;
-        width: 100%;
-        font-family: Arial, Helvetica, sans-serif;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        --p-max-width: 600px;
-      }
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --p-max-width: 600px;
+  }
 
-      a:link {
-        color: blue;
-        text-decoration: underline;
-      }
+  a:link {
+    color: blue;
+    text-decoration: underline;
+  }
 
-      a:visited {
-        color: purple;
-        text-decoration: underline;
-      }
+  a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
 
-      a:hover {
-        color: darkblue;
-        text-decoration: underline;
-      }
+  a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
 
-      a:active {
-        color: red;
-        background-color: transparent;
-        text-decoration: underline;
-      }
+  a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
 
-      .section {
-        width: 100%;
-      }
-      .content-block p,
-      .content-block ul {
-        font-family: Georgia, "Times New Roman", Times, serif;
-        font-size: large;
-        line-height: 1.5;
-        max-width: var(--p-max-width);
-        text-align: justify;
-      }
-      .content-block table {
-        table-layout: fixed;
-        width: 100%;
-        max-width: var(--p-max-width);
-        text-align: center;
-      }
-      .content-block table,
-      .content-block th,
-      .content-block td {
-        border: 1px solid grey;
-        border-collapse: collapse;
-      }
-      .no-borders table,
-      .no-borders th,
-      .no-borders td {
-        border: none;
-      }
-      .two-columns {
-        display: flex;
-        margin-bottom: 2rem;
-      }
-      .left-column {
-        width: 50%;
-        margin-right: 2rem;
-      }
-      .right-column {
-        width: 50%;
-      }
-      .one-column {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      video {
-        height: auto;
-        width: 100%;
-      }
-      img {
-        height: auto;
-        width: 100%;
-      }
+  .section {
+    width: 100%;
+  }
+  .content-block p,
+  .content-block ul {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: large;
+    line-height: 1.5;
+    max-width: var(--p-max-width);
+    text-align: justify;
+  }
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: var(--p-max-width);
+    text-align: center;
+  }
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+  .right-column {
+    width: 50%;
+  }
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  video {
+    height: auto;
+    width: 100%;
+  }
+  img {
+    height: auto;
+    width: 100%;
+  }
 
-      @media only screen and (max-width: 1000px) {
-        .two-columns {
-          flex-direction: column;
-        }
-        .left-column {
-          width: 100%;
-          margin-right: 0;
-        }
-        .right-column {
-          width: 100%;
-        }
-      }
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+    .right-column {
+      width: 100%;
+    }
+  }
 
-      /* Accordion functionality below */
-      .hidecontent {
-        display: none;
-      }
-      .accordion-label {
-        display: block;
-        padding: 8px 22px;
-        margin: 20px 0px 1px 0px;
-        cursor: pointer;
-        background: lightgray;
-        color: #fff;
-        transition: ease 0.5s;
-      }
-      .accordion-label:hover {
-        background: lightblue;
-      }
-      .accordion-content {
-        /* box-shadow: 0 0 20px #d4d4d4;
-        background: #ffff;
-        padding: 10px 25px;
-        border: 1px solid #d4d4d4;
-        margin: -1 0 0 0; */
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: #fff;
+    transition: ease 0.5s;
+  }
+  .accordion-label:hover {
+    background: gray;
+  }
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+  .content-block input:checked + .accordion-label + .accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: block;
+      opacity: 0;
+    }
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
 
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-width: 0 0 2px;
-        padding: 1.5rem 0;
-      }
-      .content-block input:checked + .accordion-label + .accordion-content {
-        display: block;
-        webkit-animation: fadeIn 0.5s ease-out;
-        -moz-animation: fadeIn 0.5s ease-out;
-        -o-animation: fadeIn 0.5s ease-out;
-        animation: fadeIn 0.5s ease-out;
-      }
-      @-webkit-keyframes fadeIn {
-        0% {
-          display: none;
-          opacity: 0;
-        }
-        1% {
-          display: block;
-          opacity: 0;
-        }
-        100% {
-          display: block;
-          opacity: 1;
-        }
-      }
-    </style>
-  </head>
+<div class="content-block">
+  <h1>Unbalanced Data</h1>
 
-    <div class="content-block">
-      <h1>Unbalanced Data</h1>
-  
-      <!-- Section 1 -->
-      <div class="section">
-        <input type="checkbox" id="accordion1" class="hidecontent" />
-        <label class="accordion-label" for="accordion1">
-          <div class="section-header">
-            <h2>Case Study Example</h2>
-            <h3>Part of our COMPAS case study</h3>
-          </div>
-        </label>
-        <div class="accordion-content hidecontent">
-          <div class="two-columns">
-            <div class="left-column">
-              <p class="video-text">
-                In
-                <a
-                  href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=261"
-                  >COMPAS</a
-                >, a risk scoring algorithm was used to assess a criminal
-                defendant’s likelihood of reoffending. This included race as a
-                variable, which lead to a lot of the controversy of COMPAS. This
-                video explains the concept of balanced data.
-              </p>
-            </div>
-            <div class="right-column">
-              <video controls src="./example_video.mp4"></video>
-            </div>
-          </div>
-          <div class="one-column">
-            <div class="text-block">
-              <p>
-                In Part One, we introduced COMPAS, a risk scoring algorithm used
-                to assess a criminal defendant’s likelihood of reoffending. Since
-                race was a predictor in this model, the algorithm would predict
-                whether the defendant was likely to reoffend by accounting for
-                their race. This is unethical since it results in racial profiling
-                when applying the machine learning model to live data.
-              </p>
-              <p>
-                Race may have been found to be a predictor if there were unequal
-                group sizes between race and other variables.
-              </p>
-              <p>
-                For example, suppose that a categorical variable of income level
-                were in the data set, and suppose that one income level contained
-                a high proportion of individuals from a certain race.Then, another
-                income level contained a high proportion of individuals from a
-                different race. When modelling the data, it then is unclear
-                whether the variable that affects the likelihood of reoffending is
-                race or income level.
-              </p>
-              <p>
-                Let’s say we have the following values for the risk of reoffending
-                [see values on video]. Then we can see that the mean risk of
-                reoffending is higher for one race than another. However, we can
-                also see that the mean risk of reoffending is higher for one
-                income bracket than another. If data were unbalanced then the
-                order that the variables are inputted into the model changes the
-                overall outcome. If race is inputted into the model before income
-                level, then race might be found to be a predictor. When income
-                level is inputted, it may not be a predictor if race accounts for
-                that level of variability in the outcome variable. Similarly, if
-                income level was put in the model before race, then income level
-                may be a predictor, and race not a predictor, if the data is
-                unbalanced.
-              </p>
-            </div>
-          </div>
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h2>Case Study Example</h2>
+        <h3>Part of our COMPAS case study</h3>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            In
+            <a
+              href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=261"
+              >COMPAS</a
+            >, a risk scoring algorithm was used to assess a criminal
+            defendant’s likelihood of reoffending. This included race as a
+            variable, which lead to a lot of the controversy of COMPAS. This
+            video explains the concept of balanced data.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls src="./example_video.mp4"></video>
         </div>
       </div>
-  
-      <!-- Section 2 -->
-      <div class="section">
-        <input type="checkbox" id="accordion2" class="hidecontent" />
-        <label class="accordion-label" for="accordion2">
-          <div class="section-header">
-            <h2>Abstract concept</h2>
-            <h3>
-              If data is unbalanced, then it is sometimes challenging to identify
-              sources of variability.
-            </h3>
-          </div>
-        </label>
-        <div class="accordion-content hidecontent">
-          <div class="one-column">
-            <div class="text-block">
-              <p>
-                This is one of the reasons statisticians love design and are
-                afraid of uncontrolled data sources. Without balanced data
-                differentiating sources of variability in the analysis is
-                sometimes much harder.
-              </p>
-              <p>
-                For example with balanced data the order that the explanatory
-                variables are input into a model does not affect the amount of
-                variability explained by the variables. However, withf unbalanced
-                data the different effect weightings due to the unbalances between
-                two variables may be captured by either variable and hence by the
-                first variable entered into the model. The order variables are
-                entered into the model affects how much variability they account
-                for.
-              </p>
-              <p>
-                There are no quick fixes to this and often disentangling sources
-                of variability within large data sets is one of the hardest parts
-                of the analysis. There are tools that can be used to restore
-                balance for an analysis with respect to identified unbalances.
-                Tools like Up and Down sampling use statistical design thinking
-                within big data to restore variable independence.
-              </p>
-              <p>
-                <strong
-                  >Often collaboration with domain experts can be invaluable to
-                  understand where it is important to spend time disentangling
-                  sources of variability.</strong
-                >
-                For specific questions and use cases some ambiguity between
-                sources of variability could lead to serious misinterpretation
-                whereas in other cases it does not matter.
-              </p>
-              <p>
-                As a data scientist being conscious of imbalances in your
-                underlying data and understanding how they might affect results is
-                half the battle! The other half might not be easy and requires a
-                mixture of technical tools as well as expert collaborations to
-                determine what can be responsibly determined from the models.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Section 3 -->
-      <div class="section">
-        <input type="checkbox" id="accordion3" class="hidecontent" />
-        <label class="accordion-label" for="accordion3">
-          <div class="section-header">
-            <h2>Illustrative Example: Village Survey</h2>
-          </div>
-        </label>
-        <div class="accordion-content hidecontent">
-          <div class="two-columns">
-            <div class="left-column">
-              <p>
-                This video introduces the illustrative example used to show
-                unbalance leading to a problem with ANOVA.
-              </p>
-            </div>
-            <div class="right-column">
-              <video controls src="./example_video_2.mp4"></video>
-            </div>
-          </div>
-          <h3>Background</h3>
-          <div class="two-columns">
-            <div class="left-column">
-              <img src="./map.png" />
-            </div>
-            <div class="right-column">
-              <div class="text-block">
-                <p>
-                  A survey is conducted in four out of ten of these villages shown
-                  below. The aim of the survey is to determine variables that
-                  affect the yield of rice. There are five other variables in the
-                  resulting data set from the survey: village, field, size,
-                  fertiliser, and variety.
-                </p>
-                <ul>
-                  <li>Village is the village where the survey was performed</li>
-                  <li>
-                    Field is the field within a village where the crop was grown
-                  </li>
-                  <li>Size is a measurement of the field size in acres</li>
-                  <li>
-                    Fertiliser is the fertiliser amount. This is a numerical
-                    variable
-                  </li>
-                  <li>
-                    Variety is the type of variety of rice - there are three
-                    varieties: Old, New, and Traditional
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <h3>Viewing Unbalanced Data</h3>
-          <div class="one-column">
-            <p>
-              We can see that the data is unbalanced by a simple frequency table.
-              Here we have the villages as rows, and the fertiliser level as
-              columns.
-            </p>
-            <div class="no-borders">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td><strong>Low</strong></td>
-                    <td><strong>Medium</strong></td>
-                    <td><strong>High</strong></td>
-                    <td><strong>Total</strong></td>
-                  </tr>
-                  <tr>
-                    <td>Sabey</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>6</td>
-                    <td>10</td>
-                  </tr>
-                  <tr>
-                    <td>Kesen</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>7</td>
-                  </tr>
-                  <tr>
-                    <td>Niko</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>5</td>
-                  </tr>
-                  <tr>
-                    <td>Nanda</td>
-                    <td>1</td>
-                    <td>4</td>
-                    <td>9</td>
-                    <td>14</td>
-                  </tr>
-                  <tr>
-                    <td>Total</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>17</td>
-                    <td>36</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="text-block">
-              <p>
-                Looking at this table, it is clear that the group sizes vary
-                between fertiliser group and village; a higher fertiliser is used
-                frequently in Nanda, but is never used in the Niko village. This
-                unbalanced data leads to the question: is the variability in the
-                yield because of a higher fertiliser, or because they’re in that
-                village?
-              </p>
-              <p>
-                An investigation into the data can help clarify the answer. We can
-                look at the mean yield by village, and the mean yield by
-                fertiliser group.
-              </p>
-            </div>
-            <div class="no-borders">
-              <table>
-                <tbody>
-                  <tr>
-                    <td><strong>Village</strong></td>
-                    <td><strong>Mean yield</strong></td>
-                  </tr>
-                  <tr>
-                    <td>Sabey</td>
-                    <td>45.33</td>
-                  </tr>
-                  <tr>
-                    <td>Kesen</td>
-                    <td>32.76</td>
-                  </tr>
-                  <tr>
-                    <td>Niko</td>
-                    <td>30.56</td>
-                  </tr>
-                  <tr>
-                    <td>Nanda</td>
-                    <td>44.68</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <br />
-            <div class="no-borders">
-              <table>
-                <tbody>
-                  <tr>
-                    <td><strong>Fertiliser level</strong></td>
-                    <td><strong>Mean yield</strong></td>
-                  </tr>
-                  <tr>
-                    <td>Low</td>
-                    <td>27.42</td>
-                  </tr>
-                  <tr>
-                    <td>Medium</td>
-                    <td>37.69</td>
-                  </tr>
-                  <tr>
-                    <td>High</td>
-                    <td>49.25</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="text-block">
-              <p>
-                We can see that the villages vary in mean yield between them. The
-                fertiliser is much more striking. The highest fertiliser level
-                results in the largest yield on average, and the lowest fertiliser
-                level results in the smallest average yield.
-              </p>
-              <p>
-                Comparing the mean yields with the table of frequencies, we can
-                see that villages that use the high fertiliser level more often
-                result in a higher mean yield (in Sabey, 6/10 fertiliser levels
-                are high; in Nanda it is 9/14). Hence, in this data set, the
-                variation between the villages can be explained by another
-                variable: the fertiliser level. The unbalanced data then makes
-                village look as if it has an effect when fertiliser is omitted
-                from the model.
-              </p>
-              <p>
-                Note that we are lucky. In other data sets, the variation could be
-                down to a variable that isn't measured in the data set, such as
-                the soil type or the climate!
-              </p>
-            </div>
-            <h3>What can go wrong?</h3>
-            <p>
-              If we didn’t identify the unbalance in the data, then the
-              conclusions could have been very different. An ANOVA is fitted with
-              both fertiliser and village as factors. An ANOVA table divides the
-              variability into the part that is accounted for, and the residual.
-              When the residual variability – the part that is not accounted for –
-              is low, then the information from the data becomes clear. In the
-              ANOVA table, the mean squares are roughly variances (a common
-              measure of variation). If just village is fitted, the village is
-              found to significantly affect the outcome variable. The variation
-              between the villages is quite large (464) compared with the residual
-              value of 111.
-            </p>
-            <div>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>Df</td>
-                    <td>Sum Sq</td>
-                    <td>Mean Sq</td>
-                    <td>F value</td>
-                    <td>Pr(&gt;F)</td>
-                  </tr>
-                  <tr>
-                    <td>village</td>
-                    <td>3</td>
-                    <td>1391.2</td>
-                    <td>463.73</td>
-                    <td>4.1642</td>
-                    <td>0.01343</td>
-                  </tr>
-                  <tr>
-                    <td>Residuals</td>
-                    <td>32</td>
-                    <td>3563.6</td>
-                    <td>111.36</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Section 4 -->
-      <div class="section">
-        <input type="checkbox" id="accordion4" class="hidecontent" />
-        <label class="accordion-label" for="accordion4">
-          <div class="section-header">
-            <h2>Conclusion</h2>
-          </div>
-        </label>
-        <div class="accordion-content hidecontent">
-        <div class="one-column">
-          <div class="text-block">
-            <p>Text text about the conclusion…</p>
-          </div>
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            In Part One, we introduced COMPAS, a risk scoring algorithm used to
+            assess a criminal defendant’s likelihood of reoffending. Since race
+            was a predictor in this model, the algorithm would predict whether
+            the defendant was likely to reoffend by accounting for their race.
+            This is unethical since it results in racial profiling when applying
+            the machine learning model to live data.
+          </p>
+          <p>
+            Race may have been found to be a predictor if there were unequal
+            group sizes between race and other variables.
+          </p>
+          <p>
+            For example, suppose that a categorical variable of income level
+            were in the data set, and suppose that one income level contained a
+            high proportion of individuals from a certain race.Then, another
+            income level contained a high proportion of individuals from a
+            different race. When modelling the data, it then is unclear whether
+            the variable that affects the likelihood of reoffending is race or
+            income level.
+          </p>
+          <p>
+            Let’s say we have the following values for the risk of reoffending
+            [see values on video]. Then we can see that the mean risk of
+            reoffending is higher for one race than another. However, we can
+            also see that the mean risk of reoffending is higher for one income
+            bracket than another. If data were unbalanced then the order that
+            the variables are inputted into the model changes the overall
+            outcome. If race is inputted into the model before income level,
+            then race might be found to be a predictor. When income level is
+            inputted, it may not be a predictor if race accounts for that level
+            of variability in the outcome variable. Similarly, if income level
+            was put in the model before race, then income level may be a
+            predictor, and race not a predictor, if the data is unbalanced.
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
-</html>
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h2>Abstract concept</h2>
+        <h3>
+          If data is unbalanced, then it is sometimes challenging to identify
+          sources of variability.
+        </h3>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            This is one of the reasons statisticians love design and are afraid
+            of uncontrolled data sources. Without balanced data differentiating
+            sources of variability in the analysis is sometimes much harder.
+          </p>
+          <p>
+            For example with balanced data the order that the explanatory
+            variables are input into a model does not affect the amount of
+            variability explained by the variables. However, withf unbalanced
+            data the different effect weightings due to the unbalances between
+            two variables may be captured by either variable and hence by the
+            first variable entered into the model. The order variables are
+            entered into the model affects how much variability they account
+            for.
+          </p>
+          <p>
+            There are no quick fixes to this and often disentangling sources of
+            variability within large data sets is one of the hardest parts of
+            the analysis. There are tools that can be used to restore balance
+            for an analysis with respect to identified unbalances. Tools like Up
+            and Down sampling use statistical design thinking within big data to
+            restore variable independence.
+          </p>
+          <p>
+            <strong
+              >Often collaboration with domain experts can be invaluable to
+              understand where it is important to spend time disentangling
+              sources of variability.</strong
+            >
+            For specific questions and use cases some ambiguity between sources
+            of variability could lead to serious misinterpretation whereas in
+            other cases it does not matter.
+          </p>
+          <p>
+            As a data scientist being conscious of imbalances in your underlying
+            data and understanding how they might affect results is half the
+            battle! The other half might not be easy and requires a mixture of
+            technical tools as well as expert collaborations to determine what
+            can be responsibly determined from the models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h2>Illustrative Example: Village Survey</h2>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p>
+            This video introduces the illustrative example used to show
+            unbalance leading to a problem with ANOVA.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls src="./example_video_2.mp4"></video>
+        </div>
+      </div>
+      <h3>Background</h3>
+      <div class="two-columns">
+        <div class="left-column">
+          <img src="./map.png" />
+        </div>
+        <div class="right-column">
+          <div class="text-block">
+            <p>
+              A survey is conducted in four out of ten of these villages shown
+              below. The aim of the survey is to determine variables that affect
+              the yield of rice. There are five other variables in the resulting
+              data set from the survey: village, field, size, fertiliser, and
+              variety.
+            </p>
+            <ul>
+              <li>Village is the village where the survey was performed</li>
+              <li>
+                Field is the field within a village where the crop was grown
+              </li>
+              <li>Size is a measurement of the field size in acres</li>
+              <li>
+                Fertiliser is the fertiliser amount. This is a numerical
+                variable
+              </li>
+              <li>
+                Variety is the type of variety of rice - there are three
+                varieties: Old, New, and Traditional
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h3>Viewing Unbalanced Data</h3>
+      <div class="one-column">
+        <p>
+          We can see that the data is unbalanced by a simple frequency table.
+          Here we have the villages as rows, and the fertiliser level as
+          columns.
+        </p>
+        <div class="no-borders">
+          <table>
+            <tbody>
+              <tr>
+                <td>&nbsp;</td>
+                <td><strong>Low</strong></td>
+                <td><strong>Medium</strong></td>
+                <td><strong>High</strong></td>
+                <td><strong>Total</strong></td>
+              </tr>
+              <tr>
+                <td>Sabey</td>
+                <td>1</td>
+                <td>3</td>
+                <td>6</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>Kesen</td>
+                <td>3</td>
+                <td>2</td>
+                <td>2</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>Niko</td>
+                <td>4</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Nanda</td>
+                <td>1</td>
+                <td>4</td>
+                <td>9</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>9</td>
+                <td>10</td>
+                <td>17</td>
+                <td>36</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-block">
+          <p>
+            Looking at this table, it is clear that the group sizes vary between
+            fertiliser group and village; a higher fertiliser is used frequently
+            in Nanda, but is never used in the Niko village. This unbalanced
+            data leads to the question: is the variability in the yield because
+            of a higher fertiliser, or because they’re in that village?
+          </p>
+          <p>
+            An investigation into the data can help clarify the answer. We can
+            look at the mean yield by village, and the mean yield by fertiliser
+            group.
+          </p>
+        </div>
+        <div class="no-borders">
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Village</strong></td>
+                <td><strong>Mean yield</strong></td>
+              </tr>
+              <tr>
+                <td>Sabey</td>
+                <td>45.33</td>
+              </tr>
+              <tr>
+                <td>Kesen</td>
+                <td>32.76</td>
+              </tr>
+              <tr>
+                <td>Niko</td>
+                <td>30.56</td>
+              </tr>
+              <tr>
+                <td>Nanda</td>
+                <td>44.68</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br />
+        <div class="no-borders">
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Fertiliser level</strong></td>
+                <td><strong>Mean yield</strong></td>
+              </tr>
+              <tr>
+                <td>Low</td>
+                <td>27.42</td>
+              </tr>
+              <tr>
+                <td>Medium</td>
+                <td>37.69</td>
+              </tr>
+              <tr>
+                <td>High</td>
+                <td>49.25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-block">
+          <p>
+            We can see that the villages vary in mean yield between them. The
+            fertiliser is much more striking. The highest fertiliser level
+            results in the largest yield on average, and the lowest fertiliser
+            level results in the smallest average yield.
+          </p>
+          <p>
+            Comparing the mean yields with the table of frequencies, we can see
+            that villages that use the high fertiliser level more often result
+            in a higher mean yield (in Sabey, 6/10 fertiliser levels are high;
+            in Nanda it is 9/14). Hence, in this data set, the variation between
+            the villages can be explained by another variable: the fertiliser
+            level. The unbalanced data then makes village look as if it has an
+            effect when fertiliser is omitted from the model.
+          </p>
+          <p>
+            Note that we are lucky. In other data sets, the variation could be
+            down to a variable that isn't measured in the data set, such as the
+            soil type or the climate!
+          </p>
+        </div>
+        <h3>What can go wrong?</h3>
+        <p>
+          If we didn’t identify the unbalance in the data, then the conclusions
+          could have been very different. An ANOVA is fitted with both
+          fertiliser and village as factors. An ANOVA table divides the
+          variability into the part that is accounted for, and the residual.
+          When the residual variability – the part that is not accounted for –
+          is low, then the information from the data becomes clear. In the ANOVA
+          table, the mean squares are roughly variances (a common measure of
+          variation). If just village is fitted, the village is found to
+          significantly affect the outcome variable. The variation between the
+          villages is quite large (464) compared with the residual value of 111.
+        </p>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td>&nbsp;</td>
+                <td>Df</td>
+                <td>Sum Sq</td>
+                <td>Mean Sq</td>
+                <td>F value</td>
+                <td>Pr(&gt;F)</td>
+              </tr>
+              <tr>
+                <td>village</td>
+                <td>3</td>
+                <td>1391.2</td>
+                <td>463.73</td>
+                <td>4.1642</td>
+                <td>0.01343</td>
+              </tr>
+              <tr>
+                <td>Residuals</td>
+                <td>32</td>
+                <td>3563.6</td>
+                <td>111.36</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <input type="checkbox" id="accordion4" class="hidecontent" />
+    <label class="accordion-label" for="accordion4">
+      <div class="section-header">
+        <h2>Conclusion</h2>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>Text text about the conclusion…</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
