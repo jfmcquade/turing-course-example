@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    --p-max-width: 600px;
+    --p-max-width: 100%;
   }
 
   .content-block a:link {
@@ -40,7 +40,7 @@
   }
   .content-block p,
   .content-block ul {
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     line-height: 1.5;
     max-width: var(--p-max-width);
@@ -162,10 +162,7 @@
         <div class="left-column">
           <p class="video-text">
             In
-            <a
-              href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=261"
-              >COMPAS</a
-            >, a risk scoring algorithm was used to assess a criminal
+            <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=261">COMPAS</a>, a risk scoring algorithm was used to assess a criminal
             defendant’s likelihood of reoffending. This included race as a
             variable, which lead to a lot of the controversy of COMPAS. This
             video explains the concept of balanced data.
@@ -256,11 +253,9 @@
             restore variable independence.
           </p>
           <p>
-            <strong
-              >Often collaboration with domain experts can be invaluable to
+            <strong>Often collaboration with domain experts can be invaluable to
               understand where it is important to spend time disentangling
-              sources of variability.</strong
-            >
+              sources of variability.</strong>
             For specific questions and use cases some ambiguity between sources
             of variability could lead to serious misinterpretation whereas in
             other cases it does not matter.
