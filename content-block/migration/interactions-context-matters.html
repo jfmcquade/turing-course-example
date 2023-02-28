@@ -1,0 +1,261 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=230" target="_blank">Apple
+            case study</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            The Apple case study uses a level of personalisation. To personalise you feed off interactions in the data
+            set. These interactions, if they are there, need to be explainable.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/166662775/interactions_context.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              To illustrate this point, we will use the apple case study on their development of a credit card. When
+              developing the credit card, apple were personalising for different things. It's all about personalising
+              the application process: People apply for the credit card, and you personalise the product for them. This
+              level of personalisation means that they're using interactions all the time: to personalise you feed off
+              interactions in the data set.
+            </p>
+            <p>
+              But we now want to go a step further and say, these interactions, if they are there, need to be
+              explainable. To do this responsibly, we want to make this explainable.
+            </p>
+            <p>
+              We want to be able to not only personalise, but explain how we are personalising. What context is leading
+              to these differences? This explainability is big part of understanding the interactions in our data and
+              therefore helping us to make those decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          Context matters for many effects, which can lead to misleading analysis if the interactions are not
+          identified.
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            One of the most exciting implications of big data for science is that it has the potential to identify
+            complex real world interactions that cannot be found through small studies.
+          </p>
+          <p>
+            There is a growing body of evidence across many scientific domains, including medicine, agriculture and more
+            that while traditional research approaches are extremely successful within the context of the study, more
+            data is often needed to identify changes in the results across contexts. In health this demonstrates itself
+            through recognition that trial participants need to be more diverse than previously understood as both
+            gender and race can interact with symptoms and effectiveness. In agriculture there is increasing recognition
+            of the importance of interactions with both environmental and cultural factors.
+          </p>
+          <p>
+            <strong>As data scientists working with bigger data we are well placed to be able to identify contextual
+              differences by studying the interactions between variables</strong>. The nature of data available to us
+            often means that there are multiple plausible interpretations to interactions observed which the data cannot
+            differentiate between. This is where working collaboratively with people who understand the contexts deeply
+            is valuable to guide decisions related to the data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
