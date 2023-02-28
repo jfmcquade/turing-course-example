@@ -1,0 +1,523 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=229" target="_blank">Part of
+            our COMPAS case study</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            In COMPAS, a risk scoring algorithm was used to assess a criminal defendant’s likelihood of reoffending.
+            This included race as a variable, which lead to a lot of the controversy of COMPAS. This video highlights
+            how in this case race should have been considered a proxy variable.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/478552684/proxy_variables.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              In Part One, we introduced COMPAS, a risk scoring algorithm used to assess a criminal defendant’s
+              likelihood of reoffending. Race was a predictor in this algorithm, suggesting that an individual's race
+              influences whether they will reoffend or not.
+            </p>
+            <p>
+              While race was found to be a predictor in the machine learning modelling process, race is not a variable
+              that should be used for prediction. Using race as a predictor is unethical, and hence the data scientist
+              is not being responsible. This is because the machine learning algorithm will now be judging individuals
+              based on their race.
+            </p>
+            <p>
+              A result of using race as a predictor in the training model means that the wrong question has been asked.
+              If the question that was asked is “Is race correlated with the outcome variable?”, then the answer is yes
+              - because that is what the prediction model does. However, the fact that race accounts for variability
+              does not mean, necessarily, that it answers the question that should have been asked. The data scientist
+              should instead ask the question “Does race cause the outcome?”.
+            </p>
+            <p>
+              Since race was found to be a predictor of whether an individual will reoffend or not, then race does
+              account for some variability in the model. As a result, it is right for race to not be disregarded
+              completely from the analysis. Instead, race should be used in the analysis to help account for variability
+              in the predictor model. This can then result in a more ethical, responsible interpretation of the model.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          Proxy variables explain variability in the data without having a causal link, which can be both challenging
+          and useful.
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            Finding a predictor variable simply means that the variable is correlated with the outcome. It is well
+            understood that correlation and causation are not equivalent. When a variable is correlated but not causal
+            it can be considered a Proxy for the variables that are causal.
+          </p>
+          <p>
+            As data scientists it is our responsibility to avoid considering proxy variables as causal to avoid
+            misleading interpretation of the data. However, there are times when causal variables cannot be measured,
+            and we can use proxy variables that exist in the data to build understanding or make predictions.
+          </p>
+          <p>
+            When a variable has been identified as something that accounts for variability, a data scientist then needs
+            to dig in to explore why it is a predictor, and to understand the relationship. Can the relationship be
+            explained? What could be creating a relationship between the predictor and the outcome? These questions can
+            be answered, for example, by talking to domain experts. A key message is that the analyst cannot stop the
+            analysis at the point of identifying predictors, the question of whether it might be a proxy variable for
+            something else needs to be considered.
+          </p>
+          <p>
+            <strong>Data scientists need interactions with context and domain experts to identify and deal with proxy
+              variables responsibly</strong>. Building the skills to work in transdisciplinary teams that can
+            differentiate between correlation and causation is hard but essential.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h3>Illustrative example: Village Survey</h3>
+        <h4>
+          Illustrative example using some Village Survey data to highlight the nature of a proxy variable.
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p>
+            This video illustrates proxy variables using the Village Survey data set. Background to this data set is
+            given below.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/480597082/roger_proxy.mp4"></video>
+        </div>
+      </div>
+      <div class="one-column">
+        <div class="text-block">
+          <h4>Background</h4>
+          <p>
+            A survey is conducted in four out of ten of these villages shown below. The aim of the survey is to
+            determine variables that affect the yield of rice. There are five other variables in the resulting data set
+            from the survey: village, field, size, fertiliser, and variety.
+          </p>
+          <p>
+          <ul>
+            <li><strong>Village</strong> is the village where the survey was performed.</li>
+            <li><strong>Field</strong> is the field within a village where the crop was grown.</li>
+            <li><strong>Size</strong> is a measurement of the field size in acres.</li>
+            <li><strong>Fertiliser</strong> is the fertiliser amount. This is a numerical variable.</li>
+            <li><strong>Variety </strong> is the type of variety of rice - there are three varieties: Old, New, and
+              Traditional.</li>
+          </ul>
+          </p>
+          <img src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/596894251/Aerial%20Photo.png"
+            alt="Aerial image of the location of the ten villages." width="607" height="311"></img>
+          <h4>Accounting for Variability in the Yield</h4>
+          <p>
+            Some simple descriptive analyses are performed to find variables that account for variability in the yield.
+          </p>
+          <img
+            src="https://lh5.googleusercontent.com/fnTK1QWLkMHvyvNVEwUMcgximla1ahIOPGY7T7JWuR0AI8gnEQTIbuA4PjbnCEFBpPa2e0INMNYQBTwKOeabaKw3J53hVluky_qt2D7QNioEfWfuym_I2K7FX-n45MiVQJCK79td9qMxLyl2azVpU9-w26DUh6kqJpRh3sLgLRoSIZbZu-2kmOS4hVr--w"
+            width="941" height="471">
+          </img>
+          <em>Figure 1: Amount of yield produced for each village.</em>
+          <p>
+            The boxplots indicate that two of the villages seem to have lower yields than the other two. Hence, we can
+            see that the villages account for some of the variability in the outcome, yield.
+          </p>
+          <p>
+            An Analysis of Variance (ANOVA) table confirms this idea. An ANOVA table divides the variability into the
+            part that is accounted for, and the residual. When the residual variability – the part that is not accounted
+            for – is low, then the information from the data becomes clear. In the ANOVA table, the mean squares are
+            roughly variances (a common measure of variation) and the variation between the villages is quite large
+            (464) compared with the residual value of 111.
+          </p>
+          <div class="no-borders">
+            <table>
+              <tbody style="font-family: Courier New, Courier, mono; font-size: medium;">
+                <tr>
+                  <td></td>
+                  <td><strong>Df</strong></td>
+                  <td><strong>Sum Sq</strong></td>
+                  <td><strong>Mean Sq</strong></td>
+                  <td><strong>F Value</strong></td>
+                  <td><strong>Pr(&gt;F)</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>village</strong></td>
+                  <td>3</td>
+                  <td>1391.2</td>
+                  <td>463.73</td>
+                  <td>4.1642</td>
+                  <td>0.01343</td>
+                </tr>
+                <tr>
+                  <td><strong>Residuals</strong></td>
+                  <td>32</td>
+                  <td>3563.6</td>
+                  <td>111.36</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            However, the village variable is not logically satisfactory to account for variability in yield. The first
+            question that should be asked when finding a variable that accounts for variability in the outcome is “so
+            what?”. What differences are there between villages that affect overall yield? For example: rainfall, soil
+            type, concentration of fertiliser, varieties of soil, or something else? These questions can help a data
+            scientist to explore deeper.
+          </p>
+          <p>
+            Unfortunately, soil type and rainfall were not measured, so maybe the village could be a proxy for them.
+            However, fertiliser and variety were measured, so we can check whether the fertiliser and/or variety also
+            could account for the variability in the yields.
+          </p>
+          <p>
+            A quick plot of fertiliser against yield shows that there is some correlation between fertiliser and yield.
+            Additionally, a boxplot between variety and yield suggests that variety accounts for variability in yield
+            (Figure 2).
+          </p>
+          <img
+            src="https://lh4.googleusercontent.com/M0MPyFzisg4u0gHSz41vH2hb2dT4he0GYk3UADomQIWPG2ZqedWvb9Tywr0BXflA4uCm42ZlQuFXZsbFme2k7mS_dw6B7iP75O3yT8n5J8p1DZjYIRUKERcf3c3aYTEsIVxHq6bXixEdIXdzkMQ2XFW9t-enbRJPmG3j5kmuGY34mz3ZDuFPQZHC2Y9_zw"
+            width="972" height="486">
+          <em>Figure 2: Amount of yield produced for each fertiliser level (top) and each variety (bottom).</em>
+          <p>
+            An ANOVA is fitted with both fertiliser and variety as outcome variables. The residual variance (mean
+            square) is now only 23, when it was 111 with the model containing the villages. This model therefore seems a
+            better fit than the previous ANOVA that was considered.
+          </p>
+          <div class="no-borders">
+            <table>
+              <tbody style="font-family: Courier New, Courier, mono; font-size: medium;">
+                <tr>
+                  <td></td>
+                  <td><strong>Df</strong></td>
+                  <td><strong>Sum Sq</strong></td>
+                  <td><strong>Mean Sq</strong></td>
+                  <td><strong>F Value</strong></td>
+                  <td><strong>Pr(&gt;F)</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>fert</strong></td>
+                  <td>1</td>
+                  <td>2993.70</td>
+                  <td>2993.70</td>
+                  <td>130.821</td>
+                  <td>7.681e-13</td>
+                </tr>
+                <tr>
+                  <td><strong>variety</strong></td>
+                  <td>2</td>
+                  <td>1228.75</td>
+                  <td>614.38</td>
+                  <td>26.848</td>
+                  <td>1.429e-07</td>
+                </tr>
+                <tr>
+                  <td><strong>Residuals</strong></td>
+                  <td>32</td>
+                  <td>732.28</td>
+                  <td>22.88</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Interestingly adding the village to this model now makes no difference. The residual variance remains at 23.
+            So, the interpretation seems to be that the apparent effect of the villages is because the farmers in some
+            villages are more go-ahead in using the higher-yielding varieties and in applying fertiliser.
+          </p>
+          <div class="no-borders">
+            <table>
+              <tbody style="font-family: Courier New, Courier, mono; font-size: medium;">
+                <tr>
+                  <td></td>
+                  <td><strong>Df</strong></td>
+                  <td><strong>Sum Sq</strong></td>
+                  <td><strong>Mean Sq</strong></td>
+                  <td><strong>F Value</strong></td>
+                  <td><strong>Pr(&gt;F)</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>fert</strong></td>
+                  <td>1</td>
+                  <td>2993.70</td>
+                  <td>2993.70</td>
+                  <td>128.2597</td>
+                  <td>3.647e-12</td>
+                </tr>
+                <tr>
+                  <td><strong>variety</strong></td>
+                  <td>2</td>
+                  <td>1228.75</td>
+                  <td>614.38</td>
+                  <td>26.3218</td>
+                  <td>3.033e-07</td>
+                </tr>
+                <tr>
+                  <td><strong>village</strong></td>
+                  <td>3</td>
+                  <td>55.40</td>
+                  <td>18.47</td>
+                  <td>0.7911</td>
+                  <td>0.5087</td>
+                </tr>
+                <tr>
+                  <td><strong>Residuals</strong></td>
+                  <td>29</td>
+                  <td>676.89</td>
+                  <td>23.34</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            This message is general. We want to account for as much variability as possible. But sometimes the
+            explanatory variable is clearly just a proxy.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Conclusion</h3>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              In the COMPAS data set, race is a proxy variable that affects the risk of reoffending. By not asking the
+              "So what?" question, race remained as a predictor in the model, and resulting in unethical implications
+              when applied on live data to prisoners. Instead of race, another factor can affect risk of reoffending;
+              for example, might be the individuals income?
+            </p>
+            <p>
+              In the rice survey data set, village is a proxy variable that affects yield. Village might affect the
+              overall yield because of differences in climate across villages, in crops planted, in the fertiliser used,
+              or any number of other factors. We may not even have the variable that explains the proxy; for example,
+              soil type was not measured in the rice survey, and income level may not be given in the COMPAS example.
+            </p>
+            <p>
+              The video below [...]
+            </p>
+            <video controls
+              src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/486949795/Proxy%20conclusion%20.mov"></video>
+          </div>
+        </div>
+      </div>
+    </div>
