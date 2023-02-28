@@ -1,0 +1,596 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=231" target="_blank">Ofqual
+            case study</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            Under "A Case Study Approach", the Ofqual case study is introduced. In brief, Ofqual was tasked with
+            creating an algorithm to predict GCSE and A-Level grades for students in England and Wales after
+            examinations were cancelled during the Covid-19 pandemic. In this video, we use the Ofqual case study to
+            illustrate concept on natural variability.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/431763486/building_an_instinct.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              In 2020, all GCSE and A-Level examinations in England and Wales were cancelled due to the Covid-19
+              pandemic. As a result, Ofqual was tasked with creating an algorithm to predict GCSE and A-Level grades for
+              students.
+            </p>
+            <p>
+              Ofqual created an algorithm to achieve this, explained in more detail in the case study section. In brief,
+              the historical performance of students from the previous three years were used to administer grades. To
+              help predict the performance of a 2020 cohort within a certain centre and subject, the historical grades
+              were chosen from the same centre and same subject.
+            </p>
+            <p>
+              Hence, each subject and centre had a similar proportion of individuals receiving each grade in the 2020
+              predicted grades to in the previous three years (although do note that more A and A*s were given than
+              usual).
+            </p>
+            <p>
+              The system used by Ofqual was overturned after an outcry over the inherent biases that became apparent at
+              an individual level. One cause of why the algorithm predicted grades poorly may be because natural
+              variability was not properly taken into consideration in the algorithm design. For example, the algorithm
+              mapped down to a centre and subject, and forced that school to have a certain distribution. However, that
+              is not responsible since each subject within each centre has a small number of data points.
+            </p>
+            <p>
+              The distribution of marks across all the schools probably looks nice and natural, because there’s lots of
+              data. But, at a school and subject-level, there is now a much smaller data set, and so the data is not
+              expected to look as natural, and each school is not expected to fit into the models as well. Trying to
+              make each individual school look “nice” is therefore the wrong approach because there’s no longer data
+              abundance. It is natural and expected to have outliers and clustering, and for the data to not fit a
+              distribution as well when there are fewer data points. However, the algorithm was forcing a certain
+              distribution onto small sets of data.
+            </p>
+            <p>
+              This approach then forced the results for each school to be average in terms of that school's average in
+              previous years. However, this failed to account for the variation that can occur between previous cohorts
+              and the current year. Hence, trying to get these small components to fit into a certain distribution
+              introduced biases and was very problematic. For example, suppose that one student were been particularly
+              good in their year group but the previous three years did not have a student achieve a grade boundary
+              above a B. If the examination were sat, that student would be an outlier by what the school would usually
+              have, but this is natural and this variability was not taken into account in the Ofqual algorithm.
+            </p>
+            <p>
+              Understanding natural variability can help data scientists to recognise that fitting a model within-centre
+              and subject is inherently going to lead to problems, because that will force unnatural distributions of
+              variability. However an ethical audit highlighted this as an example where not only was the implementation
+              not considered responsible but it was questioned whether it was even possible to do so responsibly as
+              current individual achievement, which is what exams are intended to measure, does not exist in the data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          Humans are generally bad at understanding what randomness looks like. It takes practice and experience to
+          build good instincts.
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            As discussed in the <a hreft="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=335"
+              target="_blank">Course Overview</a>, there are three types of variability when it comes to explaining
+            variation in an outcome variable:
+          </p>
+          <p>
+          <ul>
+            <li>The variability that is accounted for (“good”);</li>
+            <li>The variability that is unidentified (“bad”);</li>
+            <li>The natural variability (“ugly”).</li>
+          </ul>
+          </p>
+          <p>
+            Natural variability is unavoidable. Randomness is a natural part of our world, but humans are often quite
+            bad at identifying it. Not only is it hard to distinguish between natural and unidentified variability, but
+            getting it wrong, either way, causes problems.
+          </p>
+          <p>
+            Humans naturally look for patterns in everything, and learning to identify randomness often doesn’t come
+            naturally. It takes practice and explicit effort to build intuitions on what is, or is not, natural in
+            different contexts.
+          </p>
+          <p>
+            <strong>Data scientists can build good intuition for natural variability through data
+              visualisation</strong>. When you visualise data, or a subset of data, you should be able to build an
+            instinct as to whether this data could have happened by chance, given your understanding of the context, or
+            whether that’s unlikely.
+          </p>
+          <p>
+            To know what you are looking for, you first need to know what natural variability looks like. One way to do
+            this is to visualise simulated data of varying levels of complexity. For building intuition, simulated data
+            has the big advantage that the complexity can be controlled.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h3>Illustrative example I: Climatic Analysis</h3>
+        <h4>
+          Illustrative example to highlight good, bad, and ugly variability
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <h4>Example with a simplified data set</h4>
+          <p>
+            We use an example to explain the concept of good, bad, and ugly variability with a very simplified data set.
+            Consider an experiment where the outcome variable is the score on a maths test out of 50 for 10-11 year
+            olds. There are two explanatory variables:
+          </p>
+          <p>
+          <ul>
+            <li>Whether they ate breakfast that morning before the test (0 = No; 1 = Yes)</li>
+            <li>How much sleep they got the night before (< 6 hours; 6-8 hours, more than 8 hours)</li>
+          </ul>
+          </p>
+          <p>
+            We have 2000 students. Looking at the overall scores, we can see a fairly normal distribution (Figure 1)
+          </p>
+          <img src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/819235157/image.png">
+          <p>
+            <em>Figure 1: Density plot of the outcome variable: test results. Most students scored around 30.</em>
+          </p>
+          <p>
+            The top plot in Figure 2 shows the overall scores split by whether the student ate breakfast in the
+            morning, and the bottom plot shows the overall scores split by how much sleep the student had before the
+            test. Both variables seem to account for some of the variability in the outcome.
+          </p>
+          <img src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/819235157/image%20%281%29.png">
+          <p>
+            <em>Figure 2: Test results split by the explanatory variables</em>
+          </p>
+          <p>
+            So, what's the bad variability and what's the ugly variability? We fit a linear model to our data with our
+            two explanatory variables, and then look at an ANOVA. The bad and ugly variability is currently mixed up in
+            the Residuals Mean Squared (32.36).
+          </p>
+          <div class="no-borders">
+            <table>
+              <tbody style="font-family: Courier New, Courier, mono; font-size: medium;">
+                <tr>
+                  <td></td>
+                  <td><strong>Df</strong></td>
+                  <td><strong>Sum Sq</strong></td>
+                  <td><strong>Mean Sq</strong></td>
+                  <td><strong>F Value</strong></td>
+                  <td><strong>Pr(&gt;F)</strong></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>X1</strong></td>
+                  <td>1</td>
+                  <td>2181</td>
+                  <td>2180.63</td>
+                  <td>67.385</td>
+                  <td>3.961e-16</td>
+                  <td>***</td>
+                </tr>
+                <tr>
+                  <td><strong>X2</strong></td>
+                  <td>2</td>
+                  <td>2048</td>
+                  <td>1023.83</td>
+                  <td>31.638</td>
+                  <td>2.973e-14</td>
+                  <td>***</td>
+                </tr>
+                <tr>
+                  <td><strong>Residuals</strong></td>
+                  <td>1996</td>
+                  <td>64593</td>
+                  <td>32.36</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            In the Residuals Mean Squares, there is some variability that can still be accounted for - this can be from
+            aspects beyond what is observed in the data set, such as if they usually do their homework, the support they
+            receive outside with their maths, and so forth. This is the ugly variability: It isn't natural, but could be
+            identifiable if we had the data for it. If we had all the information in the world, we would just have the
+            natural variability left.
+          </p>
+          <p>
+            The bad variability is the variability that cannot be accounted for because it is natural variability.
+          </p>
+          <h4>But it's simulated data!</h4>
+          <p>
+            As it is, this is a simulated data set. There was a third variable that was used when generating the outcome
+            variable (test scores). This third variable accounts for the remainder of the identifiable variability!
+          </p>
+          <p>
+            If we input that variable into the model, we just have good and bad variability (unfortunately outside of a
+            simulation study, there will be ugly variability!).
+          </p>
+          <div class="no-borders">
+            <table>
+              <tbody style="font-family: Courier New, Courier, mono; font-size: medium;">
+                <tr>
+                  <td></td>
+                  <td><strong>Df</strong></td>
+                  <td><strong>Sum Sq</strong></td>
+                  <td><strong>Mean Sq</strong></td>
+                  <td><strong>F Value</strong></td>
+                  <td><strong>Pr(&gt;F)</strong></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>X1</strong></td>
+                  <td>1</td>
+                  <td>2181</td>
+                  <td>2180.6</td>
+                  <td>85.869</td>
+                  <td>&lt;2.2e-16</td>
+                  <td>***</td>
+                </tr>
+                <tr>
+                  <td><strong>X2</strong></td>
+                  <td>2</td>
+                  <td>2048</td>
+                  <td>1023.8</td>
+                  <td>40.316</td>
+                  <td>&lt;2.2e-16</td>
+                  <td>***</td>
+                </tr>
+                <tr>
+                  <td><strong>X3</strong></td>
+                  <td>1</td>
+                  <td>13930</td>
+                  <td>13929.6</td>
+                  <td>548.520</td>
+                  <td>&lt;2.2e-16</td>
+                  <td>***</td>
+                </tr>
+                <tr>
+                  <td><strong>Residuals</strong></td>
+                  <td>1995</td>
+                  <td>50663</td>
+                  <td>25.4</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Illustrative example II</h3>
+          <h4>
+            Illustrative example using simulated data to illustrate building an intuition
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-column">
+          <div class="text-block">
+            <div>
+              <h4>Natural Variability may look Identifiable</h4>
+              <p>
+                Humans are generally bad at recognising natural variability. Often, we can think that something is
+                random if there is no clustering, but, completely random data can still have clusters. This is much more
+                likely to occur with a smaller sample size than a larger one, since the probability of even spacing is
+                really small. This idea can be seen by generating and viewing randomly simulated data.
+              </p>
+              <p>
+                In Figure 1, there are four plots containing simulated data. Which of these would you say are simulated
+                from a normal distribution with mean 0, and standard deviation 1?
+              </p>
+              <img src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/506848745/image.png">
+              <p>
+                <em>Figure 1: Four simulated plots, ID runs from 1-20, and Value is the simulated value</em>
+              </p>
+              <p>
+                There are clusters in A, apparent linearity in D, slight curvature in B, but, all four of these are
+                simulated from the same Normal Distribution (mean 0, standard deviation 1). Viewing and playing with
+                simulated data is a great way to build an instinct.
+              </p>
+              <p>
+                A small sample may also give the impression of being bimodal, not unimodal. Figure 2 gives the density
+                plots of the simulated data used in Figure 1.
+              </p>
+              <img src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/506848745/image%20%281%29.png">
+              <p>
+                <em>Figure 2: Density plots of the four simulated plots from Figure 1.</em>
+              </p>
+              <p>
+                In Figure 3 are four density plots, simulated from a Normal Distribution. However, the four normal
+                distributions are of different sizes: One contains 10 values, one 100, one 1000, and one 10000 values.
+                Can you tell which contains less and which contains more? (Answer given at bottom of page).
+              </p>
+              <img src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/506848745/image%20%282%29.png">
+              <p>
+                <em>Figure 3: Four density plots, simulated from a Normal Distribution. One plot contains 10 values, one
+                  100, one 1000, and one 10000 values.</em>
+              </p>
+              <p>
+                This is important to note, even when working with large data sets like in Machine Learning. This is
+                because there can be pockets of smaller sample sizes within a large data set when you dig into certain
+                factor levels; for example, if you look at a specific school and subject level you now have a handful of
+                data points that you are working with.
+              </p>
+              <h4>Accountable Variability may look Natural</h4>
+              <p>
+                On the flip-side, accountable variability may look natural with a larger sample size. It is important
+                to be able to see when variability is natural, and when it is not. One powerful way to build these
+                instincts is through simulated data. This is because data simulated from a distribution contains only
+                natural variability - not any unaccounted variability. For example, you may have a variable that looks
+                like it follows a bimodal distribution. If this variable only has 20 data points, then it may be natural
+                variability. However, if there are 20,000 data points then it is more likely to be a bimodal
+                distribution (Figure 4).
+              </p>
+              <img src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/506848745/image%20%283%29.png">
+              <p>
+                <em>Figure 4: Each plot is simulated from two normal distributions - one with a mean of 1, the other
+                  with a mean of 2. The four plots contain a different number of simulated values. In A, 10 values are
+                  N(1, 1), 10 values are N(2, 1). In B, 100 values are in each distribution; in C, 1000 values; in D,
+                  10000 values.</em>
+              </p>
+              <h4>Answers</h4>
+              <p>
+                Figure 3: A - 100; B - 10000, C - 10, D - 1000.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <input type="checkbox" id="accordion5" class="hidecontent" />
+    <label class="accordion-label" for="accordion5">
+      <div class="section-header">
+        <h3>Conclusion</h3>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-columns">
+        <div class="text-block">
+          <p>
+            At the start of this content block we saw a series of distributions for a randomly generated variable. One
+            of these was actually a mixture of two distributions, but that cannot be recognised from a graph.
+          </p>
+          <p>
+            It is misleading to go from only visualising the graphs to see if variability is natural.
+          </p>
+          <p>
+          <ul>
+            <li>We might spend more time with the variable that looks like it is not natural due to the sample size, but
+              is entirely natural variation. Here, there is not any point in fitting a model since it is entirely
+              natural variation.</li>
+            <li>We might look at the variable that looks like it is naturally distributed and assume that the “job is
+              done”. However, the variation in A can be explained further, because of how it is generated.</li>
+          </ul>
+          </p>
+          <p>
+            It may not be clear from looking at the distribution that it is not natural, so you need to make sure. Just
+            because it looks like natural variability does not mean it is not built from a mixture of distributions.
+            This is the key point of this section: natural variability may not look so natural with a smaller sample
+            size. Similarly, accountable variability may look natural with a larger sample size.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
