@@ -1,0 +1,430 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=230" target="_blank">Amazon
+            case study</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            Under "A Case Study Approach", the Amazon case study is introduced. In brief, Amazon tried to use Machine
+            Learning to "shortlist" individuals to interview for a job. Due to various reasons, they did not end up
+            using this algorithm, one of which is highlighted in this video to illustrate the idea of making the ugly
+            variability beautiful.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/935621409/ugly_beautifu.mp4"></video>
+        </div>
+      </div>
+
+      <!--      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      </div>
+-->
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          A data scientist’s aim should be to minimise the unidentified variability
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            In the <a hreft="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=335" target="_blank">Course
+              Overview</a>, the notion of good, bad, and ugly variability was introduced. The
+            so-called “ugly” variability is the variability that could be identified, but has not yet been accounted
+            for. The aim is to minimise this type of variability so that we have as much “good” (accounted for)
+            variability, with the remainder being just “bad” (natural) variability . Good and bad variability are both
+            considered beautiful in their own ways.
+          </p>
+          <p>
+            The unidentified, or “ugly”, variability can be made beautiful in a number of different ways. <strong>In
+              general, data scientists can look within or beyond the variables in a given dataset to reduce the
+              unidentified variability</strong>.
+          </p>
+          <p>
+            When looking at existing variables within a data set, a data scientist is digging deeper into their data set
+            often using statistical methods. There is often a lot that can be done by fitting models carefully and
+            insightfully to reduce the unidentified variability. Progress made in this approach is generally transparent
+            and explainable because it is coming from the data.
+          </p>
+          <p>
+            Looking beyond the variables in the data is where machine learning algorithms come into their own. This is
+            extremely powerful because with abundant data there is almost always more accountable complexity than
+            variables to explain it. The ability to identify potentially ‘hidden variables’, that are not in the data
+            set, that account for variability transforms what is possible to achieve in the analysis. However, some
+            machine learning methods imply the use of mathematical transformations and methods which unavoidably include
+            black box elements which are not transparent or easily explainable.
+          </p>
+          <p>
+            Arguably variability identified by machine learning algorithms in ways which are not explainable is not yet
+            accounted for. For responsibility there is then substantial work needed to understand the nature of the
+            variability identified. This can in some cases retrofit explainability at the very least ensure it has not
+            introduced unacceptable biases.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h3>Illustrative example I</h3>
+        <h4>
+          How a variable that follows a bimodal distribution can be split into two unimodal distributions
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            One way to spot "unidentified variability" is if there is a bimodal variable in the data. While everything
+            comes down to the specific context, and it is important to not have a blanket rule, there are some
+            indicators to be aware of that suggest that some variability may need to be accounted for.
+          </p>
+          <p>
+            If a variable displays a bimodal distribution, then there are two types of things happening. If you
+            understand how to differentiate them, then they look more natural than two unimodal distributions
+            overlapping one another. If a variable has a strong bimodal element, it is good for the data scientist to
+            question if they have missed something, such as whether a categorical variable could instead explain the
+            bimodal distribution to instead have two overlapping normal distributions.
+          </p>
+          <p>
+            Consider a density plot displaying the heights of 4000 adults over 18 years old (Figure 1). The data
+            distribution looks slightly bimodal.
+          </p>
+          <img
+            src="https://lh4.googleusercontent.com/OSV4nJ5mwTq1974oqcvnQ1tphR_6hcO0zAe42gJkH2_OaqU8HJdqvmiykauXZauGUGI2X49eKFyTpUqTt60puzoUu6K-OFdWIqDiZ68WKRXDBCgszRGqgsKD1QAhYJG3Xz0KLLNYcidBcAeVCNwkUH4"
+            width="781" height="391">
+          <p>
+            <em>Figure 1: Distribution of the height of 4000 individuals</em>
+          </p>
+          <p>
+            However, say that 2000 adults were male and 2000 were female. If the sex is then taken into account, we have
+            two smoother distributions which helps to explain the bimodal relationship (Figure 2). Here we have
+            accounted for some of the variability: There is a variable that we have found that can split out the
+            distribution, and can account for some of that variability.
+          </p>
+          <img
+            src="https://lh3.googleusercontent.com/XtX3AXDBMqvObnb-0XVd5526gFFpgvbB04wscW5LPJH_rzPxkrMussKS27onDQhzUiGp_Erz2n7sLN4cnM-jXD5BXAiBVUsQNVAV4OCgSsyIg9-GNhTBTvKAoki6p0b0R_PsS3yOJxTTge_eySfzBS4"
+            width="807" height="404">
+          <p>
+            <em>Figure 2: Distribution of the height of 4000 individuals, with an indicator if
+              they are male or female.</em>
+          </p>
+          <p>
+            Another example may be with height and age for children. If you see a bimodal distribution, then a good
+            instinct to have is that this doesn’t look natural, and to question if you have missed something. Perhaps
+            question yourself: What would it look like if we had age or sex in there as well?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Illustrative example II</h3>
+          <h4>
+            Using residual variability in an ANOVA to identify there is ugly variability
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-column">
+          <div class="text-block">
+            <div>
+              <h4>How do you know that you only have natural variability left? You don’t. But there are techniques to
+                use to explore this. We use an ANOVA table example to demonstrate this.</h4>
+              <p>
+                An ANOVA table displays the variability that is accounted for by each variable in a model, as well as
+                the residual variability. What does it mean if you have a variable that is accounting for a lot less
+                variability in the model than the residual itself?
+              </p>
+              <p>
+                Let’s familiarise ourselves with an ANOVA table, and interpreting the results:
+              </p>
+              <div class="no-borders">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Source of variation</th>
+                      <th>Degrees of freedom (DF)</th>
+                      <th>Sums of Squares (SS)</th>
+                      <th>Mean Sums of Squares (MS)</th>
+                      <th>F-Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Factor</td>
+                      <td>$$SS_{factor}$$</td>
+                      <td>$$k-1$$</td>
+                      <td>$$MS_{factor} = SS_{factor} / k-1$$</td>
+                      <td>$$MS_{factor} / MS_{residuals}$$</td>
+                    </tr>
+                    <tr>
+                      <td>Residuals</td>
+                      <td>$$SS_{residuals}$$</td>
+                      <td>$$n-k$$</td>
+                      <td>$$MS_{residuals} = SS_{residuals} / n-k$$</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Total</td>
+                      <td>$$SS_{total}$$</td>
+                      <td>$$n-1$$</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                An F score much greater than 1 implies that the variability in the factor variable is much greater than
+                the variability in the residuals. This suggests that the factor variable accounts for a good amount of
+                variability in the model. / correlation between the factor and the outcome variable
+              </p>
+              <p>
+                An F score roughly equivalent to 1 implies that the variability in the factor accounts for as much
+                variability as if it were happening by chance.
+              </p>
+              <p>
+                What about an F-score much less than 1? This implies that the variability in the factor is much less
+                than the variability in the residuals.
+              </p>
+              <p>
+                But: The variability in the residuals is just the variability that you get by chance. So if the
+                variability in the factors is less than the variability in the residuals, this means that you are
+                getting something by chance [factor variability] which is so much less than what you get by chance
+                [residual variability]. This is very unlikely, and so while this may be by chance, it is probably not by
+                chance. Instead, this implies that the residual variability contains within it stuff that is not random,
+                but systematic. That is, there is still some variability in the model that is unaccounted for. This
+                variability could be accounted for if you had the information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <input type="checkbox" id="accordion5" class="hidecontent" />
+    <label class="accordion-label" for="accordion5">
+      <div class="section-header">
+        <h3>Conclusion</h3>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-columns">
+        <div class="text-block">
+          <p>
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
