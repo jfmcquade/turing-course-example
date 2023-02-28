@@ -1,0 +1,591 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=231" target="_blank">Ofqual
+            case study</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            In this content block, the “known unknowns” are explored, that is, the data that we know are missing. The
+            video below uses the Ofqual case study to outline the importance of handling missing values.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/282055000/missing_data.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              In 2020, all GCSE and A-Level examinations were cancelled due to the Covid-19 pandemic. As a result,
+              Ofqual was tasked with creating an algorithm to predict GCSE and A-Level grades for students. The approach
+              they used to achieve this is outlined in here, but, in brief, the historical performance of students from
+              a previous cohort within a subject and centre is used to help build the distribution of the predicted
+              performance of the 2020 cohort within that same subject and centre.
+            </p>
+            <p>
+              As well as using historical data for previous cohorts, the current students' performance in previous
+              qualifications was also used to help build the model. The students’ performance in previous qualifications
+              is referred to as their “prior attainment”. For GCSE level, the prior attainment is taken from the
+              individual’s examinations they took at the end of Key Stage Two, called SATs. For A-Level students, the
+              prior attainment is taken from the students’ performance in their GCSEs.
+            </p>
+            <p>
+              However, what if a student did not have an observed measurement for their prior attainment? For example,
+              if a student previously studied abroad, they might not have a UK-based qualification and hence do not have
+              a value for their prior attainment. Alternatively, if a student had changed their name between the
+              examination that was used to calculate their “prior attainment” score and 2020, and could therefore not be
+              matched in the records.
+            </p>
+            <p>
+              If there were no prior attainment values for all students within a subject and centre, or a high
+              proportion were missing within a subject and centre, the predicted distribution for the 2020 cohort is
+              based on the distribution of grades from previous cohorts.
+            </p>
+            <p>
+              If a small proportion of students did not have a prior attainment value within a specific subject and
+              centre, an additional weighting towards the distribution of grades from previous cohorts within that
+              subject and centre would be incorporated into the algorithm.
+            </p>
+            <p>
+              In other words, the algorithm assumed that the missing prior attainment values followed the same
+              distribution as the observed prior attainment values. But, what if this was not the case? The values may
+              have been missing due to a factor that also would affect their GCSE or A-Level grade that the algorithm is
+              predicting. Overseeing this aspect can add biases into the predicted grades for individuals who do not
+              have matched data for previous qualifications.
+            </p>
+            <p>
+              For example, consider a student who changed their surname between sitting their GCSEs and A-Levels, in
+              2020. It could be a significant event for a student to change their name or surname. It may be that this
+              individual is around the age of 18 when they are sitting their A-Levels, in which case the name change has
+              occurred at a young age. Has this change that occurred to them to result in a name change affected their
+              academic performance positively or negatively?
+            </p>
+            <p>
+              Alternatively, perhaps the student took several years out after their GCSEs before going back to studying
+              their A-Levels as a mature student. Has this change that occurred to them to result in a name change
+              affected their academic performance positively or negatively?
+            </p>
+            <p>
+              An individual’s prior attainment may also be missing if the student did not sit the examination that was
+              used to calculate prior attainment. One example where this may occur is if a student previously studied
+              abroad and did not sit SATS or GCSEs. This situation depends on the student, not on how previous years at
+              their school have performed. Their situation depends on where they have travelled from and studied
+              previously. Was their data that could have been brought into consideration? Should the data scientist be
+              looking into that extra data to understand the individual? Or is it okay to ignore that? These are the
+              types of questions that the data scientist should consider, because ignoring that is a choice that can
+              cause unethical results.
+            </p>
+            <p>
+              Finally, in the UK, independent schools can choose whether their students sit SATS examinations (or have
+              any formal examination). Hence, a GCSE student who was at an independent school in year 6 may not have a
+              value for their prior attainment score. However, the distribution of grades is not the same between
+              independent and non-independent schools.
+            </p>
+            <p>
+              Say an individual studied at an independent school which did not sit any formal examinations in year 6.
+              This individual then has a missing prior attainment score. The GCSE grades that they are then given by the
+              algorithm depends on the performance of previous cohorts. Their personal situation is not taken into
+              account. This highlights the unethical nature of this whole process.
+            </p>
+            <p>
+              As pointed out in the case study, there is an ethical issue with the approach that Ofqual took to
+              administer GCSE and A-Level grades. For example, say we did have all the data, that is, we somehow had a
+              prior attainment score for an individual whose school happened to not sit formal examinations. Then this
+              student is going to be privileged by the algorithm by just attending an independent school since
+              independent schools happen to perform better. The whole system is unfair. The individual’s personal
+              situation is not taken into account. Hence, there is a problem with the algorithm in the first place. But,
+              even by trying to administer grades using this approach, Ofqual did not take into account their approach
+              to handling the missing values. This reinforces that not only was Ofqual using this approach badly, but
+              doing it well in the first place is totally irresponsible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          There are many situations where the data that is available can be misleading unless the data that is not there
+          is also considered.
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            Missing data is inevitable in all but the simplest of datasets. If we think of data as being in a table then
+            it is useful to consider rows which correspond to missing cases, columns correspond to missing variables and
+            cells correspond to missing values.
+          </p>
+          <p>
+            Missing cases and variables are important for an analyst to keep in the back of their mind. Reflecting on
+            missing cases is to think who’s voice is not represented by the data you are using, such as the people who
+            don’t use technology, in a social media sentiment analysis. Reflecting on missing variables is to consider
+            whether there might be information or metadata which would change the nature of an analysis and hence the
+            results.
+          </p>
+          <p>
+            Missing values, on the other hand, are concrete and any analysis implicitly involves taking decisions about
+            them, even if that decision is to ignore them. Make decisions about missing data explicit, with a reasoned
+            justification.
+          </p>
+          <p>
+            <strong>How missing values should be handled depends on the context; there is no general right answer, hence
+              the importance of justifying your choices</strong>. When faced with missing values, an analyst should
+            question why they might be missing, and consider the consequence of the missing values. Which variables and
+            cases are incomplete? What proportion of the variable or case is incomplete? Why might these variables or
+            cases be missing? Are variables or cases missing in a systematic way?
+          </p>
+          <p>
+            Some missing values can be informative and hence the center of an analysis. In some cases it is possible and
+            desirable to estimate missing values while in other cases it is better to leave them out altogether.
+          </p>
+          <p>
+            An analyst may be able to use alternative data sources to investigate the cause of missing values and to
+            justify their actions when handling missing values. Alternatively, they may be able to discuss with domain
+            experts to explore the cause of missingness. This information can inform the analyst to justify their
+            actions, even if there is no change. The key point is that the analyst can then be informed, either on the
+            causes of missing values, or the impacts of that value being missing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h3>Illustrative example I: Climatic Analysis</h3>
+        <h4>
+          A climatic analysis to illustrate a "data detective"
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p>
+            Spending time carefully examining missing values in a data set, including the causes of the missing data, is
+            all part of perceptive analysis and being a data detective. This is a task that should be done very
+            carefully, because, while it may be time consuming, you can pay a price if you do not allow that time. This
+            video gives an example of being a “data detective” with climatic data.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/575422223/roger_missing_video.mp4"></video>
+        </div>
+      </div>
+      <div class="one-column">
+        <div class="text-block">
+          <h4>Background</h4>
+          <p>
+            In a climatic analysis, you often have daily data for the rainfall, minimum temperature, and maximum
+            temperature. This data is measured at different stations around a country and is useful for many reasons,
+            such as for meteorologists in predicting weather patterns. We use the example of climatic analysis to
+            highlight how different missingness patterns might stem from different causes of the missing values.
+          </p>
+          <img
+            src="https://lh5.googleusercontent.com/0Hl_Ym_CB_CYp_iwVUQPYfvqoI2GRF2HWNkNBa90-D5dqfSbcbrZiheyYWFpyvjvB-kTIIPrdxzcNVi-QVlUbTahkOE-eN1_h6d42Ey6YB9F-Xbr8S3Yx8jbnFkLjj4igBK7rrlujI3xJpy3kiRQAEw"
+            width="319" height="319">
+          <p>
+            <em>Figure 1: Meterological Stations in Southern Kenya, source: <a
+                href="https://www.researchgate.net/figure/The-map-shows-the-distribution-of-Kenya-Meteorological-Weather-Stations-in-southern-part_fig1_328986272"
+                target="_blank">https://www.researchgate.net/figure/The-map-shows-the-distribution-of-Kenya-Meteorological-Weather-Stations-in-southern-part_fig1_328986272</a></em>
+          </p>
+          <h4>Data Detective: All down to context</h4>
+          <p>
+            In a climatic analysis, you may find there is the occasional missing value for rainfall. We might be tempted
+            to assume that this is a completely random missing value, and follows the same distribution as the observed
+            rainfall values for the days surrounding it in the data. In that case, we might replace the missing value
+            with an observed value on the days surrounding it.
+          </p>
+          <p>
+            But, how can we be sure that is the situation? What if instead, the rainfall value was missing because there
+            was so much rainfall that day that the whole place was flooded and the person who measures the rainfall each
+            day could not access the instrument to measure the rainfall? That would instead mean that replacing the
+            missing value with an observed value from the surrounding days results in an underestimate of rainfall.
+          </p>
+          <p>
+            How can we examine the cause of this missing rainfall value? It comes down to context. One approach is to
+            talk with experts or read literature in the field to make a more informed decision. In a climatic context,
+            there are many weather stations, and satellite data. As a result, in a climatic context, a data scientist
+            can cross-reference a missing value with the nearby stations and/or satellite data to see if there was a
+            particularly high rainfall that day. Digging into the data is very important when faced with missing values.
+          </p>
+          <p>
+            What if, instead, that despite collecting daily data, there was a whole set of missing data for a month? The
+            occasional day missing a measurement could be one reason, but consistently finding there are missing values
+            could be for a different reason. This comes down to the context of the situation, and when identifying the
+            cause we go into “data rescue”.
+          </p>
+          <p>
+            In this context, the rainfall, minimum temperature, and maximum temperature are initially recorded on a
+            sheet and then later computerised.
+          </p>
+          <p>
+            If all three elements are missing, then one cause may be that the sheet is missing and so the data was never
+            computerised. In this instance, it is fairly safe to assume that the missing values follow a similar
+            distribution to surrounding years for that month.
+          </p>
+          <p>
+            If just rainfall is missing, it could be that the temperature was written up, but the sheet was lost
+            ‘overnight’ before getting to rainfall.
+          </p>
+          <p>
+            After speaking with experts in the field, it is apparent that both minimum and maximum temperature are often
+            written up together. If minimum temperature is written up, but maximum temperature is not (or vice versa),
+            it is almost always the case that the equipment is broken. If the minimum temperature looks similar to
+            surrounding stations, it might be possible to “impute” the maximum temperature values.
+          </p>
+          <p>
+            The first step is always to find the cause. It is then to determine whether to look for it, and, if you can,
+            to then restore it.
+          </p>
+          <input type="checkbox" id="sub-accordion31" class="hidecontent" />
+          <label class="accordion-label" for="sub-accordion31">
+            <div class="section-header">
+              <h4>References</h4>
+            </div>
+          </label>
+          <div class="accordion-content hidecontent">
+            <div class="one-columns">
+              <div class="text-block">
+                <p>
+                  Wango, Tim & Musiega, Douglas & Mundia, Charles. (2018). Assessing the Suitability of the
+                  WorldClim Dataset for Ecological Studies in Southern Kenya. Journal of Geographic Information System.
+                  10. 643-658. 10.4236/jgis.2018.106033.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Illustrative example II: Missing Weight Values</h3>
+          <h4>
+            Illustrative example using an incomplete data set on kidney transplants to see the impact of ignoring
+            missing values
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-column">
+          <div class="text-block">
+            <div>
+              <h4>Background</h4>
+              <p>
+                The National Health Service Blood and Transplant (NHSBT) manages blood donation services in England, and
+                transplant services across the UK. One data set supplied by NHSBT contains the survival times of 7732
+                patients following a kidney graft, with the transplants taking place between 2001 and 2008. As well as
+                survival time, other variables in the data set detail characteristic information on the donor and
+                recipient of the kidney transplant, the transplant itself, and the outcome of the transplant.
+              </p>
+              <p>
+                In this data set, 66% of rows contain at least one missing value in their variable. One variable in
+                particular, weight, contains a high proportion of missing values (59.8%).
+              </p>
+              <h4>Handling Missing Values</h4>
+              <p>
+                To know how to handle the missing weight value, we need to know why it is missing. We can hypothesise
+                many reasons for this, three examples are:
+              </p>
+              <p>
+              <ul>
+                <li>Scenario I: A random selection of individuals who get their weight measured find that the machine is
+                  not working at that time</li>
+                <li>Scenario II: Older individuals did not consent to having their weight taken</li>
+                <li>Scenario III: Certain individuals who had a larger weight did not consent to disclosing their
+                  weight.</li>
+              </ul>
+              </p>
+              <p>
+                The cause of the missing weight value impacts how we handle the missing data. For example, if it were
+                Scenario I then we can assume that the missing values follow the same distribution as the observed
+                values. However, if it were Scenario III then ignoring the missing values can add bias into the analysis
+                if weight did affect the outcome, since we would be treating individuals the same regardless of their
+                weight. This would mean some variation is unaccounted for.
+              </p>
+              <p>
+                There are lots of techniques to help determine why data is missing which go beyond this course. But, to
+                illustrate, one approach can be to look at the distribution of another variable split by whether weight
+                is observed or not. In Figure 1, we look at the weight of the recipient of the transplant split by
+                whether they had their weight missing or observed. This indicates that the cause of missing in the data
+                is Scenario II: The data is more likely to be missing for individuals who are older.
+              </p>
+              <p>
+                Hence, when we think about handling the missing values, we should look at the relationship between
+                weight and age. If there is a correlation between weight and age, then the missing values are more
+                likely to follow a distribution of the observed weight values for older individuals than for the younger
+                population.
+              </p>
+              <img
+                src="https://lh6.googleusercontent.com/8AKmTCKEi3J4xOtdSV5NOY94evy2sGdKQqLUb3K7Wa4r04nGb2SM7R2nEVWUOgLiOQSITd6y30uUiXpg4yY84GFeGP7HxDBTaXICrTSPbRRV_7NQDifki-4jJderhKHZZWDVobw1XblFGb9U5tloyM4"
+                width="441" height="260">
+              <p>
+                <em>Figure 1: Age of the recipient of the transplant split by whether their weight was missing or
+                  observed. [Note: This is with simulated data]</em>
+              </p>
+              <input type="checkbox" id="sub-accordion42" class="hidecontent" />
+              <label class="accordion-label" for="sub-accordion42">
+                <div class="section-header">
+                  <h4>References</h4>
+                </div>
+              </label>
+              <div class="accordion-content hidecontent">
+                <div class="one-columns">
+                  <div class="text-block">
+                    <p>
+                      Clements, L., Kimber, A.C. and Biedermann, S., 2022. Multiple Imputation of Composite Covariates
+                      in Survival Studies. Stats, 5(2), pp.358-370.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <input type="checkbox" id="accordion5" class="hidecontent" />
+      <label class="accordion-label" for="accordion5">
+        <div class="section-header">
+          <h3>Conclusion</h3>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              TODO
+            </p>
+            <p>
+              Ignoring missing values is a decision made by the analyst. Like any decision that the analyst makes when
+              handling a data set, it is important to justify their actions.
+            </p>
+            <p>
+              When faced with missing values, an analyst may be able to use historical data, or previous studies, to
+              investigate the cause of missing values and justify their decision when handling missing values.
+            </p>
+            <p>
+              For example, Ofqual could have used historical data to see the performance for a student who changed their
+              name between qualifications, but were still identifiable. In this analysis, they can see:
+            </p>
+            <p>
+            <ul>
+              <li>If the distribution of grades were similar between students who later changed their name to those who
+                did not change their name for the qualification used to calculate “prior attainment”.</li>
+              <li>If the distribution of grades were similar between students who changed their name to those who did
+                not change their name for the qualification the algorithm was trying to predict.</li>
+              <li>The change in performance for individuals who changed their name between qualifications against those
+                who did not.</li>
+            </ul>
+            </p>
+            <p>
+              This can reduce the bias in the results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
