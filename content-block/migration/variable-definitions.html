@@ -11,7 +11,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    --p-max-width: 600px;
   }
 
   .content-block a:link {
@@ -41,17 +40,15 @@
 
   .content-block p,
   .content-block ul {
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     line-height: 1.5;
-    max-width: var(--p-max-width);
     text-align: justify;
   }
 
   .content-block table {
     table-layout: fixed;
     width: 100%;
-    max-width: var(--p-max-width);
     text-align: center;
   }
 
@@ -124,7 +121,7 @@
     margin: 20px 0px 1px 0px;
     cursor: pointer;
     background: lightgray;
-    color: #fff;
+    color: black;
     transition: ease 0.5s;
   }
 
@@ -165,16 +162,15 @@
 </style>
 
 <div class="content-block">
-  <h1>Variable Definitions</h1>
 
   <!-- Section 1 -->
   <div class="section">
     <input type="checkbox" id="accordion1" class="hidecontent" />
     <label class="accordion-label" for="accordion1">
       <div class="section-header">
-        <h2>Case Study Example</h2>
-        <h3>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=231" target="_blank">Ofqual
-            case study</a></h3>
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=231" target="_blank">Ofqual
+            case study</a></h4>
       </div>
     </label>
     <div class="accordion-content hidecontent">
@@ -187,7 +183,54 @@
           </p>
         </div>
         <div class="right-column">
-          <video controls src="./example_video.mp4"></video>
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/662215869/variable_definitions.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              In 2020, all GCSE and A-Level examinations in England and Wales were cancelled due to the Covid-19
+              pandemic. As a result, Ofqual was tasked with creating an algorithm to predict GCSE and A-Level grades for
+              students. The approach they used to achieve this is outlined in more detail here.
+            </p>
+            <p>
+              Several factors were used to help build the model. The one we are focussing on here is the current
+              students' performance in previous qualifications. The students’ performance in previous qualifications is
+              referred to as their “prior attainment”. For GCSE level, the prior attainment was taken from the
+              individual’s examination results at the end of Key Stage Two, called SATs. For A-Level students, the prior
+              attainment was from the students’ performance in their GCSEs.
+            </p>
+            <p>
+              However, in the UK there are multiple GCSE examination boards that schools choose from. Further, GCSEs and
+              IGCSEs, which some schools prefer, are not fully aligned in specifications and content. Hence, the GCSEs
+              variable has multiple definitions behind it. In the Ofqual algorithm documentation openly available there
+              is no mention of any consideration taken to different examination boards, or differentiation between GCSEs
+              and IGCSEs for the purpose of prior attainment.
+            </p>
+            <p>
+              Given the differences between the definitions in this variable, that could give rise to hidden biases due
+              to merging these potentially different measurements. If privileged or underprivileged schools consistently
+              made different choices, it could lead to unintentional systematic biases from this merging process, which
+              would be hard to identify in the predictions. For Ofqual there were other reasons that led to the
+              algorithm being dropped, but this is a concrete example of a common problem when working with large
+              datasets.
+            </p>
+            <p>
+              When merging variables from different sources, data analysts should be thoughtful to prevent introducing
+              biases into the data.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -198,15 +241,22 @@
     <input type="checkbox" id="accordion2" class="hidecontent" />
     <label class="accordion-label" for="accordion2">
       <div class="section-header">
-        <h2>Abstract concept</h2>
-        <h3>
+        <h3>Abstract concept</h3>
+        <h4>
           The detail of variable definitions can have big implications on the interpretation of results.
-        </h3>
+        </h4>
       </div>
     </label>
     <div class="accordion-content hidecontent">
       <div class="one-column">
         <div class="text-block">
+          <p>
+            This is particularly relevant when a data analyst has multiple data sets that come from different sources.
+            In
+            some instances, it may be sensible to combine, or “merge”, these data sets. This is good practice, and can
+            be
+            very important for the analysis, but needs to be done thoughtfully.
+          </p>
           <p>
             The common pitfall when merging data is that variables can have different definitions when they come from
             different sources. It is important to check the definition behind the individual variables that you want to
@@ -218,17 +268,18 @@
           <p>
             When combining variables from different sources, the data analyst should question whether the variable
             measures the same thing, and has been calculated or collected in the same way for the different sources.
-            They
-            should make corrections where possible. In addition, suppose that the data analyst finds that the merged
-            variable(s) changes for the different sources of data, and the analyst wishes to compare the merged
+            They should make corrections where possible. In addition, suppose that the data analyst finds that the
+            merged variable(s) changes for the different sources of data, and the analyst wishes to compare the merged
             variable(s) for the different sources, such as region. The analyst should question whether a potential
             effect has occurred because of a change in definition or collection from the data source, or if the
             potential effect has occurred because of the source variable, such as region.
           </p>
           <p>
             As well as questioning and correcting potential biases that can be introduced from inconsistent definitions
-            when combining data sets, <b>we recommend adding a new variable that stores the data source, and documenting
-            the differences in associated metadata</b>. Then, at least, no information is lost from working on a merged
+            when combining data sets, <strong>we recommend adding a new variable that stores the data source, and
+              documenting
+              the differences in associated metadata</strong>. Then, at least, no information is lost from working on a
+            merged
             variable obtained from different definitions.
           </p>
         </div>
@@ -241,254 +292,297 @@
     <input type="checkbox" id="accordion3" class="hidecontent" />
     <label class="accordion-label" for="accordion3">
       <div class="section-header">
-        <h2>Illustrative Example: Village Survey</h2>
+        <h3>Illustrative example I</h3>
+        <h4>
+          Illustrative example to highlight when and how different variable definitions can occur.
+        </h4>
       </div>
     </label>
     <div class="accordion-content hidecontent">
       <div class="two-columns">
         <div class="left-column">
+          <h3>
+            Measuring Deaths from Snakebite Worldwide
+          </h3>
           <p>
-            This video introduces the illustrative example used to show
-            unbalance leading to a problem with ANOVA.
+            This video gives a small trailor to the example used in this section on a Snakebite, which has recently been
+            recognised by the WHO as a Neglected Tropical Disease. This example is used to illustrate how different
+            variable definitions can occur.
           </p>
         </div>
         <div class="right-column">
-          <video controls src="./example_video_2.mp4"></video>
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/378630705/example_definitions_snakebite.mp4"></video>
         </div>
       </div>
-      <h3>Background</h3>
-      <div class="two-columns">
-        <div class="left-column">
-          <img src="./map.png" />
-        </div>
-        <div class="right-column">
-          <div class="text-block">
-            <p>
-              A survey is conducted in four out of ten of these villages shown
-              below. The aim of the survey is to determine variables that affect
-              the yield of rice. There are five other variables in the resulting
-              data set from the survey: village, field, size, fertiliser, and
-              variety.
-            </p>
-            <ul>
-              <li>Village is the village where the survey was performed</li>
-              <li>
-                Field is the field within a village where the crop was grown
-              </li>
-              <li>Size is a measurement of the field size in acres</li>
-              <li>
-                Fertiliser is the fertiliser amount. This is a numerical
-                variable
-              </li>
-              <li>
-                Variety is the type of variety of rice - there are three
-                varieties: Old, New, and Traditional
-              </li>
-            </ul>
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            Snakebite has recently been recognised by the WHO as a Neglected Tropical Disease. An apparently
+            straightforward question to ask is: worldwide, how many people per year die from snakebite?
+          </p>
+          <p>
+            The numbers of reported deaths per year is available from all affected countries, but different countries
+            use different reporting methods: some maintain central records at national or regional level; other rely on
+            hospital presentations; still others use sample surveys.
+          </p>
+          <p>
+            Simply adding up the numbers could be very misleading. Deaths can be unreported, and the level of
+            under-reporting is likely to vary with the reporting method.
+          </p>
+          <p>
+            Figure 1 below shows a world map of available sources of data on snake-bite deaths. Notice how only a few
+            countries, notably India, record data at sub-national level. Also, within a relatively small part of West
+            Africa, the data from neighbouring countries use different reporting methods.
+          </p>
+          <img
+            src="https://lh3.googleusercontent.com/Ni23MWDmF9V_Fs54TVkpdeVtRgW-6i1r-TlRnRanjwibvhT3mz57sD1aFW0oXuj08wU1XJ9JZzwrJelz_pKNidnhCLcXFDfEhek4UOmi99iiqD7eHx2sdevZG71Gmr9Mz3NQLu_vSET56UwQV4t9_h0"
+            width="602" height="376.9661103487015"><br><em style="">Figure 1: Available sources of data on
+            snakebite deaths [Source: Lancet Global Health, 2022, e398-408]</em>
+          </img>
+          <input type="checkbox" id="sub-accordion31" class="hidecontent" />
+          <label class="accordion-label" for="sub-accordion31">
+            <div class="section-header">
+              <h4>References</h4>
+            </div>
+          </label>
+          <div class="accordion-content hidecontent">
+            <div class="one-columns">
+              <div class="text-block">
+                <p>
+                  Lancet Global Health, 2022, e398-408.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <h3>Viewing Unbalanced Data</h3>
-      <div class="one-column">
-        <p>
-          We can see that the data is unbalanced by a simple frequency table.
-          Here we have the villages as rows, and the fertiliser level as
-          columns.
-        </p>
-        <div class="no-borders">
-          <table>
-            <tbody>
-              <tr>
-                <td>&nbsp;</td>
-                <td><strong>Low</strong></td>
-                <td><strong>Medium</strong></td>
-                <td><strong>High</strong></td>
-                <td><strong>Total</strong></td>
-              </tr>
-              <tr>
-                <td>Sabey</td>
-                <td>1</td>
-                <td>3</td>
-                <td>6</td>
-                <td>10</td>
-              </tr>
-              <tr>
-                <td>Kesen</td>
-                <td>3</td>
-                <td>2</td>
-                <td>2</td>
-                <td>7</td>
-              </tr>
-              <tr>
-                <td>Niko</td>
-                <td>4</td>
-                <td>1</td>
-                <td>0</td>
-                <td>5</td>
-              </tr>
-              <tr>
-                <td>Nanda</td>
-                <td>1</td>
-                <td>4</td>
-                <td>9</td>
-                <td>14</td>
-              </tr>
-              <tr>
-                <td>Total</td>
-                <td>9</td>
-                <td>10</td>
-                <td>17</td>
-                <td>36</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="text-block">
-          <p>
-            Looking at this table, it is clear that the group sizes vary between
-            fertiliser group and village; a higher fertiliser is used frequently
-            in Nanda, but is never used in the Niko village. This unbalanced
-            data leads to the question: is the variability in the yield because
-            of a higher fertiliser, or because they’re in that village?
-          </p>
-          <p>
-            An investigation into the data can help clarify the answer. We can
-            look at the mean yield by village, and the mean yield by fertiliser
-            group.
-          </p>
-        </div>
-        <div class="no-borders">
-          <table>
-            <tbody>
-              <tr>
-                <td><strong>Village</strong></td>
-                <td><strong>Mean yield</strong></td>
-              </tr>
-              <tr>
-                <td>Sabey</td>
-                <td>45.33</td>
-              </tr>
-              <tr>
-                <td>Kesen</td>
-                <td>32.76</td>
-              </tr>
-              <tr>
-                <td>Niko</td>
-                <td>30.56</td>
-              </tr>
-              <tr>
-                <td>Nanda</td>
-                <td>44.68</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <br />
-        <div class="no-borders">
-          <table>
-            <tbody>
-              <tr>
-                <td><strong>Fertiliser level</strong></td>
-                <td><strong>Mean yield</strong></td>
-              </tr>
-              <tr>
-                <td>Low</td>
-                <td>27.42</td>
-              </tr>
-              <tr>
-                <td>Medium</td>
-                <td>37.69</td>
-              </tr>
-              <tr>
-                <td>High</td>
-                <td>49.25</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="text-block">
-          <p>
-            We can see that the villages vary in mean yield between them. The
-            fertiliser is much more striking. The highest fertiliser level
-            results in the largest yield on average, and the lowest fertiliser
-            level results in the smallest average yield.
-          </p>
-          <p>
-            Comparing the mean yields with the table of frequencies, we can see
-            that villages that use the high fertiliser level more often result
-            in a higher mean yield (in Sabey, 6/10 fertiliser levels are high;
-            in Nanda it is 9/14). Hence, in this data set, the variation between
-            the villages can be explained by another variable: the fertiliser
-            level. The unbalanced data then makes village look as if it has an
-            effect when fertiliser is omitted from the model.
-          </p>
-          <p>
-            Note that we are lucky. In other data sets, the variation could be
-            down to a variable that isn't measured in the data set, such as the
-            soil type or the climate!
-          </p>
-        </div>
-        <h3>What can go wrong?</h3>
-        <p>
-          If we didn’t identify the unbalance in the data, then the conclusions
-          could have been very different. An ANOVA is fitted with both
-          fertiliser and village as factors. An ANOVA table divides the
-          variability into the part that is accounted for, and the residual.
-          When the residual variability – the part that is not accounted for –
-          is low, then the information from the data becomes clear. In the ANOVA
-          table, the mean squares are roughly variances (a common measure of
-          variation). If just village is fitted, the village is found to
-          significantly affect the outcome variable. The variation between the
-          villages is quite large (464) compared with the residual value of 111.
-        </p>
-        <div>
-          <table>
-            <tbody>
-              <tr>
-                <td>&nbsp;</td>
-                <td>Df</td>
-                <td>Sum Sq</td>
-                <td>Mean Sq</td>
-                <td>F value</td>
-                <td>Pr(&gt;F)</td>
-              </tr>
-              <tr>
-                <td>village</td>
-                <td>3</td>
-                <td>1391.2</td>
-                <td>463.73</td>
-                <td>4.1642</td>
-                <td>0.01343</td>
-              </tr>
-              <tr>
-                <td>Residuals</td>
-                <td>32</td>
-                <td>3563.6</td>
-                <td>111.36</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Section 4 -->
-  <div class="section">
-    <input type="checkbox" id="accordion4" class="hidecontent" />
-    <label class="accordion-label" for="accordion4">
-      <div class="section-header">
-        <h2>Conclusion</h2>
-      </div>
-    </label>
-    <div class="accordion-content hidecontent">
-      <div class="one-column">
-        <div class="text-block">
-          <p>Text text about the conclusion…</p>
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Illustrative example II</h3>
+          <h4>
+            Illustrative example to highlight when and how different variable definitions can occur - using Covid-19
+            as an
+            example.
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-column">
+          <div class="text-block">
+            <div>
+              <h3>How many Covid-19 Cases?</h3>
+              <p>
+                The Covid-19 pandemic that burst upon the world in 2020 has generated enormous amounts of data, much
+                of
+                which is readily accessible from web-sites that collate data from most, if not all, countries.
+              </p>
+              <p>
+                As I write this (on 9 December 2022), one site tells me that the worldwide number of cases to date
+                is
+                652,454,528. And if I dig a bit deeper I find, for example, that for the UK, the number is
+                24,024,746,
+                slightly fewer than Italy’s 24,488,080.
+              </p>
+              <p>
+                The corresponding numbers per 100,000 population are approximately 35 and 40 thousand, respectively.
+              </p>
+              <p>
+                Another site, five minutes later, gives me a worldwide number 648,053,749, UK and Italy numbers
+                24,281,031
+                and 24,488,080.
+              </p>
+              <p>
+                It’s probably not worth agonising too much about the discrepancies between the numbers reported in
+                these
+                two sites. A more important question is: how do you count the number of cases of a disease whose
+                symptoms
+                can vary from mild to lethal?
+              </p>
+              <p>
+                I don’t know how they count Covid cases in Italy, but in the UK the headline total is a sum of
+                numbers
+                reported from several sources. Two government sources are so-called Pillar 1 and Pillar 2 data,
+                defined as
+                follows:
+              </p>
+              <ul>
+                <li>Pillar 1: “all swab tests performed in Public Health England labs and National Health Service
+                  hospitals for those with a clinical need, and health and care workers”</li>
+                <li>Pillar 2: “swab testing for the wider population” (Department of Health and Social Care UK,
+                  2020)</li>
+              </ul>
+              <p>
+                It will be immediately apparent to the reader that testing the population at large (Pillar 2) will
+                likely
+                detect mild cases that would not fall within the reach of Pillar 2. And even within Pillar 2, the
+                underlying disease rates in hospitalised patients are likely to be different from the rates in
+                health and
+                care workers. In short, the reported number of cases is a biased estimate of the actual number, and
+                it is
+                not immediately clear how we would quantify, and thus be able to correct for, this bias.
+              </p>
+              <p>
+                The statistically principled answer is to augment the Pillars 1 and 2 data with data from a
+                randomised
+                survey of the complete population, which will deliver an unbiased estimate but, for reasons of
+                affordability, will likely be conducted on a much smaller scale than Pillars 1 and 2 testing.
+              </p>
+              <p>
+                Two such surveys were conducted in the UK, the REACT survey (REACT Study Investigators, 2020), which
+                operated from May 2020 to March 2022, and the continuing Office for National Statistics Coronavirus
+                Infection Survey (ONS, 2022). By combining the biased and unbiased data within a single statistical
+                model
+                in which the randomised survey data “anchor” the Pillars 1 and 2 data, we can estimate and adjust
+                for the
+                biases in Pillars 1 and 2 data, and get the best of both worlds: an unbiased estimate with higher
+                precision than would be obtained from the randomised survey data alone; Nicholson et al (2022) show
+                how
+                this was done.
+              </p>
+            </div>
+            <div>
+
+
+              <input type="checkbox" id="sub-accordion41" class="hidecontent" />
+              <label class="accordion-label" for="sub-accordion41">
+                <div class="section-header">
+                  <h4>Practical Exercise</h4>
+                </div>
+              </label>
+              <div class="accordion-content hidecontent">
+                <div class="one-columns">
+                  <div class="text-block">
+                    <p>
+                      As a practical exercise, have a look where your country is in the league tables on one of the
+                      websites
+                      above. At time of writing (December 2022), the total number of cases in Britain is amongst the top
+                      ten of
+                      all countries and regions considered. Similarly so for the total number of deaths in the UK.
+                    </p>
+                    <p>
+                      However, then look at the data by “death rate per million”. The UK is no longer in the top ten of
+                      all
+                      countries. At time of writing, they are 25th. In fact, the countries with higher death rates are
+                      often
+                      very small countries/regions. So, what is going on? Is it that Covid-19 is defined differently in
+                      these
+                      areas? Is it that Covid-19 is detected differently there?
+                    </p>
+                    <p>
+                      By comparing rows, we are comparing countries and/or regions to one another. However, there are
+                      different
+                      mechanisms to detect Covid-19, as well as define Covid-19, depending on the country. In addition,
+                      some
+                      countries may give their Covid-19 statistics more for political purposes than statistical.
+                    </p>
+                    <p>
+                      However, this doesn’t stop making the comparison, and does not mean that this data is not useful
+                      to
+                      compare worldwide comparisons. It is important for the data scientist to take the results with a
+                      pinch of
+                      salt, and to question the data before making conclusions from it. If we wish to compare two
+                      countries, we
+                      can drill down on the details of these countries a little further. When drilling down, can we
+                      learn
+                      why
+                      some countries are displaying higher counts than others? What can we learn about the definition of
+                      each
+                      country? How accessible is that countries testing system? In the UK, testing was not available to
+                      the
+                      public until months after the pandemic began; however, in other countries the testing was
+                      available
+                      immediately. A spike in the number of cases in the UK therefore may not necessarily signify a new
+                      outbreak, but instead that testing was more widespread.
+                    </p>
+                    <p>
+                      In addition, smaller countries tend to have a higher death rate per million. Is the information
+                      behind
+                      this available? Can we think about why this is?
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <input type="checkbox" id="sub-accordion42" class="hidecontent" />
+              <label class="accordion-label" for="sub-accordion42">
+                <div class="section-header">
+                  <h4>References</h4>
+                </div>
+              </label>
+              <div class="accordion-content hidecontent">
+                <div class="one-columns">
+                  <div class="text-block">
+                    <p>
+                      Department of Health and Social Care UK (2020). COVID-19 testing data: methodology note. URL
+                      https://www.gov.uk/government/publications/coronavirus-covid-19-testing-data-methodology/covid-19-testing-data-methodology-note.
+                      Nicholson, G., Lehmann, B., Padellini, T., Pouwels, K.B., Jersakova, R., Lomax, J., King, R.E.,
+                      Mallon, A-M., Diggle, P.J., Richardson, S., Blangiardo, M.and Holmes, C. (2022).
+                    </p>
+                    <p>
+                      Local prevalence of transmissible SARS-CoV-2 infection: an integrative causal model for debiasing
+                      fine-scale targeted testing data. Nature Microbiology, 7, 97-107. ONS (2022). Web-site accessed 9
+                      December 2022.
+                      https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases
+                    </p>
+                    <p>
+                      REACT Study Investigators, Riley, S., Ainslie, K.E.C., Eales, O., Jeffrey, B., Walters, C.E.,
+                      Atchison, C., Diggle, P.J., Ashby, D., Donnelly, C.A., Cooke, G., Barclay, W., Ward, H., Taylor,
+                      G., Darzi, A. and Elliott, P. (2022). Community prevalence of SARS-CoV-2 virus in England during
+                      May 2020: REACT study. MedRXiv, doi: https://doi.org/10.1101/2020.07.10.20150524
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <input type="checkbox" id="accordion5" class="hidecontent" />
+      <label class="accordion-label" for="accordion5">
+        <div class="section-header">
+          <h3>Conclusion</h3>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              TODO - video conclusion from DS, or conversation between DS and someone.
+            </p>
+            <p>
+              RS: A similar point from COMPAS would be to question whether the definitions of misdemeanor and
+              offence are the same in the 2 counties? Perhaps those chaphs could show separate lines for each county?
+            </p>
+            <strong>
+              <p>
+                Variable definitions may or may not be a bad thing - should we strive for common definitions.
+              </p>
+              <p>
+                Ofqual had a good intention but it was being unfair to certain categories because they were trying
+                to have a common definition.
+              </p>
+              <p>
+                There are certain applications where you are searching for a common definition.
+              </p>
+              <p>
+                COVID: Might strive for a common definition
+              </p>
+              <p>
+                Other situations: Striving for a common definition might mess you up.
+              </p>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
