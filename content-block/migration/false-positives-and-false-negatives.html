@@ -1,0 +1,597 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=230" target="_blank"> Apple
+            and Amazon case studies</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            In this section, we discuss drawing a line to define new factor levels for a continuous variable. The video
+            below uses the Apple and Amazon examples to highlight considerations when factorising a continuous variable.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/163136870/false_positives.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              When we have a continuous variable, we might want to categorise it into two levels; for example,
+              Accept/Reject. We won't know what the true underlying value is, but for this illustration lets say that
+              the purple dots are who we actually should reject, and orange triangles are who we should actually accept.
+              One question is where to draw the line for a continuous variable to split into the two levels?
+            </p>
+            <p>
+              In the Apple case study, the cost of accepting credit for someone who is going to be unreliable could be
+              very high because you could lose the money. So we might want to err on the side of rejecting for the
+              credit card. The cost of someone (who was a false negative: rejected when they shouldnt be) putting in
+              appeal processes, and/or a human process, could be sensible to go through to then grant them access. You
+              want to be confident that whoever your algorithm recommends, it isn't getting wrong.
+            </p>
+            <p>
+              For the Amazon case study, you want to err on the side of not having too many false negatives: You don't
+              want to miss your top candidates. If that means a human process weeds out, and that's the best you can do
+              to not lose your top candidates, then that's what you want! The cost of missing out on the best person for
+              the job could be very high.
+            </p>
+            <p>
+              This is the concept of false positives and false negatives. Where you draw the line will be wrong some of
+              the time. The question is, are you wrongly accepting people or wrongly rejecting people? Which is better
+              for your context?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          Context matters to determine the relative importance of false negatives or false positives.
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            There will be misclassifications in classification processes, this is natural and generally unavoidable due
+            to natural variability. While this issue applies to all classification problems, its complexity can be
+            understood and addressed by simply considering the binary classification problem.
+          </p>
+          <p>
+            Binary classification can always be formulated into “yes”, “no” categories for the purposes of thinking
+            about false negatives or false positives. False positives and false negatives occur when a variable that
+            should be in one group, is given in the wrong group; for example, a false positive would be if a case that
+            should be categorised as a “no” is given in the “yes” group.
+          </p>
+          <p>
+            A key question related to false positives and false negatives is where to ‘draw the line’. Should the line
+            be drawn to minimise misclassifications in general? Or might there be a reason to prioritise minimising
+            false positives over false negatives in this context? The alternative could also be more desirable depending
+            on the context.
+          </p>
+          <p>
+            <strong>For data scientists our challenge is often to help collaborators understand what is possible so that
+              they can use their contextual understanding to make good decisions</strong>. They need to consider the
+            implications of misclassifications - what are the implications of a false negative? And of a false positive?
+            Then responsible data decisions can be taken.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h3>Illustrative example I</h3>
+        <h4>
+          Illustrative example with Covid-19
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            Diagnostic testing is commonplace in medical practice, and became a topic of everyday conversation during
+            the Covid-19 pandemic. Figure 1 shows a lateral flow (LF) device of the kind that has been widely used to
+            test whether an individual is or is not currently infected with the SARS-COV2 virus, the causal agent for
+            the disease commonly known as Covid. The test is not perfect, which is why in some circumstances an
+            individual who tests positive is advised to take a second, confirmatory PCR test that is superior to, but
+            more expensive than, an LF test. Few, if any, medical testing devices are perfect but most, when combined
+            with clinical judgement, are sufficiently reliable to form the basis of clinical decision-making. The
+            routine self-administration of diagnostic tests by untrained members of the public is more problematic. At
+            various stages of the Covid-19 pandemic governments have advised, or in some cases mandated, members of the
+            public to take specific action, often at some personal cost, in the event of a positive LF test result.
+          </p>
+          <img
+            src="https://lh5.googleusercontent.com/AKZNlwHvCz8aWcflEEo3gg12erZJE2zoORLKUtlh8LXxpMNAeiDj3VLKykjL58_Skf5Mng2r_AepdHasLON_eDMDkCuauuO0zNSwIA6mQHMDSHuiWUGkBTaVXG2KN985Mge8ustJ9ZjeDVZBIfwe-qA"
+            width="237" height="95">
+          </span></p>
+          <p><em>Figure 1: Lateral Flow Testing Device</em></p>
+          <p>
+            When you use an LF device, you either see two lines or one line, indicating that you do or do not have
+            Covid, respectively. But is this result exact? If you tested positive for malaria but had spent your entire
+            life north of the Arctic Circle, you might be sceptical.
+          </p>
+          <p>
+            If you took four LF tests consecutively, you might expect them to all be positive, or all be negative.
+            However, there is a level of variability in the measurement, resulting in variability in the categorical
+            measurement: "Positive" or "Negative". Taking the measure gives you the information, it can be easier to
+            consume it as a binary "yes/no" or "TRUE/FALSE", or "Positive/Negative", but, there is variability in the
+            measurement, and so there is variability in the categorical measurement. This variability is converted from
+            a random component to a false positive or false negative. There are still false positives and negatives in
+            the same way that there would have been randomness to any given component of any value given.
+          </p>
+          <h4>Linking to Sensitivity and Specificity</h4>
+          <p>
+            Before an LF device is approved for use, its manufacturer has to provide evidence that their device meets a
+            range of quality control criteria, of which the two most important are its sensitivity and specificity. The
+            following quotation, although not in this case referring to an LF test of the kind widely distributed to the
+            general public during the current pandemic, is not untypical: “The assay has been found to have a
+            sensitivity of 81.5% and specificity of 99.1% in a US study.”
+          </p>
+          <p>
+          <ul>
+            <li>The sensitivity (Se) of a diagnostic test is the probability that it will give a positive result for
+              someone who has the condition in question.</li>
+            <li>The specificity (Sp) of a diagnostic test is the probability that it will give a negative result for
+              someone who does not have the condition in question.</li>
+          </ul>
+          </p>
+          <p>
+            Using C to denote the presence of the condition of interest and + or − to denote the test result, we can
+            express sensitivity and specificity as
+          </p>
+          <p>
+            \[Se = P(+|C) Sp = P(−|\text{not} C)\]
+          </p>
+          <p>
+            Most devices can be “tuned” to increase their sensitivity at the cost of decreasing their specificity, or
+            vice versa – as always, there is no such thing as a free lunch. The manufacturer’s challenge is to deliver a
+            device that meets specified values of both Se and Sp. In the authors’ experience, specifying a higher bar
+            for specificity than for sensitivity is not untypical, the logic behind this being that in clinical settings
+            a positive test result can be followed up by a more expensive and/or invasive confirmatory procedure of some
+            kind. From a population health perspective, estimates of prevalence based on the random testing of the
+            population with an imperfect device are biased, and the bias can be either positive or negative.
+          </p>
+          <h4>Positive and Negative Predictive Values</h4>
+          <p>
+            The sensitivity and specificity are useful things to know about a device, but from a patient’s perspective,
+            you want to know what you can conclude from a positive test result – which at various times in the Covid-19
+            pandemic, would have required you to stay at home, cancel your holiday, or something else. For this, we need
+            to introduce two new measures: positive and negative predictive values (PPV and NPV, respectively).
+          </p>
+          <p>
+            To convey the general idea consider applying our diagnostic test (with Se = 0.815 and Sp = 0.991 as before)
+            to a random sample of 10,000 people from a population in which the prevalence is 0.022 (2.2%). The table
+            below shows you what you might expect to observe:
+          </p>
+          <div class="no-borders">
+            <table>
+              <tbody style="font-family: Courier New, Courier, mono; font-size: medium;">
+                <tr>
+                  <td></td>
+                  <td><strong>+</strong></td>
+                  <td><strong>-</strong></td>
+                  <td><strong>Total</strong></td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>P(+|C) = 220 x Se</td>
+                  <td>P(-|C) = 220 x (1 - Se)</td>
+                  <td>220</td>
+                </tr>
+                <tr>
+                  <td>not C</td>
+                  <td>9780 x (1-Sp)</td>
+                  <td>9780 x (Sp)</td>
+                  <td>9780</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <div class="no-borders">
+            <table>
+              <tbody style="font-family: Courier New, Courier, mono; font-size: medium;">
+                <tr>
+                  <td></td>
+                  <td><strong>+</strong></td>
+                  <td><strong>-</strong></td>
+                  <td><strong>Total</strong></td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>179</td>
+                  <td>41</td>
+                  <td>220</td>
+                </tr>
+                <tr>
+                  <td>not C</td>
+                  <td>88</td>
+                  <td>9692</td>
+                  <td>9780</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>267</td>
+                  <td>9733</td>
+                  <td>10000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            The first row of the table follows because we expect 0.022 x 10000 = 220 individuals in our sample to be
+            infected with Covid-19, among whom we expect 0.815 x 220 = 179 to be detected by the test. Similarly, in the
+            second row we expect 0.978 x 10000 = 9780 individuals not to be infected, among whom 0.991x 9780 = 9692 will
+            return a negative result.
+          </p>
+          <p>
+            But now look at the first column of the table. This says that we expect 267 individuals to return a positive
+            test result, among whom 88, almost a third, are false positives. Having to cancel that holiday now feels a
+            bit unfair.
+          </p>
+          <p>
+            This example shows that high sensitivity and specificity of a diagnostic test does not guarantee that it
+            will have high positive and negative predictive values. This depends on the context in which the test is
+            used, as well as the prevalence.
+          </p>
+          <h4>Concluding Remarks</h4>
+          <p>
+            There isn’t one blanket rule on whether it is better to have a higher Se than Sp, or vice versa. This
+            depends on the data itself. This is the same question on whether a false negative or false positive is
+            worse. It comes down to the context.
+          </p>
+          <input type="checkbox" id="sub-accordion31" class="hidecontent" />
+          <label class="accordion-label" for="sub-accordion31">
+            <div class="section-header">
+              <h4>Further reading and References</h4>
+            </div>
+          </label>
+          <div class="accordion-content hidecontent">
+            <div class="one-columns">
+              <div class="text-block">
+                <p>
+                  Diggle, P.J. and Chetwynd, A.G. (2011). Statistics and Scientific Method: an Introduction for Students
+                  and Researchers. Oxford: Oxford University Press.
+                </p>
+                <p>
+                  The source of my quoted values Se = 0.815 and Sp = 0.991
+                </p>
+                <p>
+                  Mistry, D.A., Wang, J.Y., Moeser, M-E., Starkey, T. and Lee, L.Y.W. (2021). A systematic review of the
+                  sensitivity and specificity of lateral flow devices in the detection of SARS-CoV-2. BMC Infectious
+                  Diseases, 21 https://doi.org/10.1186/s12879-021-06528-3
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Illustrative example II</h3>
+          <h4>
+            Illustrative example: Where do you draw the line?
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-column">
+          <div class="text-block">
+            <div>
+              <p>
+                The following graphic has been made in R. Two variables, \(A\) and \(B\), were randomly generated such
+                that they follow a normal distribution:
+              </p>
+              <p>
+                \[A \sim N(0, 1)\]
+              </p>
+              <p>
+                \[B \sim N(2.5, 1)\]
+              </p>
+              <p>
+                Figure 1 shows the randomly generated values of \(A\) and \(B\). We can see that there is some overlap
+                between the groups.
+              </p>
+              <img
+                src="https://lh6.googleusercontent.com/pMetQ7-bK-gz3uVTiJyT8oCqnwc_NFWDQnxn4pBS6CfUBWpnxq1kiX3CHuT-_XjrHERbT1EfN4hCuSkzbew2qL7MvXIevhzRGqCy05UorQD_jQ3K7sGt6nhzkG-ImFJzI6vkQ461ZqC8EVuWl9XvIOQ"
+                width="624" height="303">
+              <p>
+                <em>Figure 1: Two randomly generated variables are plotted. \(A\) is normally distributed with a mean of
+                  0, and \(B\) is normally distributed with a mean of 2.5. Both variables have a standard deviation of
+                  1.</em>
+              </p>
+              <p>
+                Say we have the randomly generated values of \(A\) and \(B\) in one variable, but do not have the
+                information of whether the value was originally from group \(A\) or \(B\). Suppose we want to categorise
+                the values into the correct group.
+              </p>
+              <p>
+                In Figure 2, we have set our new group \(A\) to be all values less than -0.5, and our new group \(B\) to
+                be greater than -0.5. Here, 100% of the values in group \(A\) are from our original group \(A\)! Great!
+                We have not got any incorrect values in group \(A\). In addition, all of our values from our original
+                group \(B\) are correctly categorised into group \(B\). However, in group \(B\) we now also have some
+                values that should have been categorised into group \(A\).
+              </p>
+              <p>
+                In other words, we have false positives in group \(B\): Values which should be in \(A\) that have been
+                placed into \(B\).
+              </p>
+              <img
+                src="https://lh6.googleusercontent.com/woXeb3lStAP2RjaJja9yBO_aR9u19EFSyU_-pUTb9jp4CILoHlrBkHq7HMmvB3x0ZcHg4GAv8P0uTHTK9nwcnKmPU3bONk_n-O8BPkO3cDmKLY9XVTXcuAnXB7LXd4AkguP03HGyGAxIhmVNs3qq9TU"
+                width="624" height="324">
+              <p>
+                <em>Figure 2: Two randomly generated variables are plotted. \(A\) is normally distributed with a mean of
+                  0, and \(B\) is normally distributed with a mean of 2.5. The line is at -0.5 - all values to the left
+                  we categorise into group \(A\), and all values to the right we categorise into group B.</em>
+              </p>
+              <p>
+                In Figure 3, we have set our new group \(A\) to be all values less than 1.5, and our new group \(B\) to
+                be greater than 1.5. The majority of values placed in Group \(A\) are correctly categorised. However, we
+                have some values which are meant to be in group \(B\). These are our False Positive values in group
+                \(A\). Furthermore, we have some values that should have been placed in \(A\) but have been placed in
+                \(B\). These are our False Negative values in group \(B\).
+              </p>
+              <img
+                src="https://lh4.googleusercontent.com/6iZZzZ59M2vdndFnKiiNDlW8C5Oe5sS8yHDljnAcAJnk9mFRwZE5BxnQM_A-28VZID2f0PE1qAV9M0oyXbRgA4whOIgjfFPPd3QJDtkQ4FvQhav_8JIZpIT6jNu2Zi04LirnM7OnrWv0n5NBELGSeWI"
+                width="624" height="348">
+              <p>
+                <em>Figure 3: Two randomly generated variables are plotted. \(A\) is normally distributed with a mean of
+                  0, and \(B\) is normally distributed with a mean of 2.5. The line is at 1.5 - all values to the left
+                  we categorise into group \(A\), and all values to the right we categorise into group \(B\).</em>
+              </p>
+              <p>
+                So which is better out of Figure 2 and Figure 3? Or should we change that category line again? This
+                comes down to context.
+              </p>
+              <p>
+                Instead of \(A\) and \(B\), lets say that we are trying to diagnose cancer after a breast cancer
+                screening. Gigerenzer mentions in his book, "Risk Savvy: How to Make Good Decisions", approximately 10%
+                of women who undergo a breast cancer screening are incorrectly identified as requiring further
+                investigation. That is, approximately 10% of women are given a false positive result. Perhaps this is
+                good: It is better to be safe, and to ensure that any cancer is caught earlier on. Or perhaps, as
+                Gigerenzer points out, this incorrect flagging can be negative to them: "Women who do have breast
+                cancer, but a nonprogressive or slowly growing form that they would never have noticed during their
+                lifetimes, often undergo lumpectomy, mastectomy, toxic chemotherapy, or other interventions that have no
+                benefit to them". So: What is more ideal, a false positive or a false negative, knowing that decreasing
+                the number of false positives will increase the number of false negatives?
+              </p>
+              <input type="checkbox" id="sub-accordion41" class="hidecontent" />
+              <label class="accordion-label" for="sub-accordion41">
+                <div class="section-header">
+                  <h4>References</h4>
+                </div>
+              </label>
+              <div class="accordion-content hidecontent">
+                <div class="one-columns">
+                  <div class="text-block">
+                    <p>
+                      Gigerenzer, G., 2015. <i>Risk savvy: How to make good decisions</i>. Penguin.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <input type="checkbox" id="accordion5" class="hidecontent" />
+      <label class="accordion-label" for="accordion5">
+        <div class="section-header">
+          <h3>Conclusion</h3>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              TODO: video
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
