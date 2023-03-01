@@ -189,7 +189,7 @@
         </div>
       </div>
 
-      <!--      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
       <label class="accordion-label" for="sub-accordion11">
         <div class="section-header">
           <h4>
@@ -201,12 +201,103 @@
         <div class="one-columns">
           <div class="text-block">
             <p>
-              
+              We have access to a snippet of the COMPAS data, so can use this data to illustrate interactions.
+            </p>
+            <p>
+              In COMPAS, a risk scoring algorithm was used to assess a criminal dependence likelihood of reoffending.
+              One calculation performed in this algorithm is the violent recidivism scale. This calculation gives a
+              score out of 10 aims to predict the criminal dependence likelihood of committing a violent crime after
+              their release.
+            </p>
+            <p>
+              A higher score indicates that the individual is more likely to commit a violent crime after their release,
+              and hence this person is thought of to be a greater risk for society than an individual with a lower
+              score.
+            </p>
+            <p>
+              There are lots of different variables in this data set, but a few to just point out for this illustration
+              is
+            </p>
+            <p>
+            <ul>
+              <li>The priors count, which is the number of prior offences that each that the individual has committed
+              </li>
+              <li>The charge description. So this is the type of crime committed and the description of the crime and
+                this description is of the crime that they face at this particular point in time
+              </li>
+              <li>Is recid - Whether the individual did end up reoffending or not and</li>
+              <li>is violent recid - whether the individual ended up violently reoffended or not.</li>
+            </ul>
+            </p>
+            <p>
+              So of the individuals who are charged in the data set, 68.6% of them had a prior offence, which already
+              suggests that people who have a prior offence are more likely to reoffend again.
+            </p>
+            <p>
+              If we delve into this data, we could see that those who had a prior offence were more likely to reoffend
+              than those who didn't have a prior offence. 9.2% versus 5.1%.
+            </p>
+            <p>
+              We can group the criminal charge into whether the charge is a violent crime or a non violent crime
+              depending on the description. So of the charges that the individual based 45.7% were charged with a
+              violent offence just under half.
+            </p>
+            <p>
+              The proportional defendants charged with a violent crime is similar to those who are charged with a
+              nonviolent crime if win 8% less at 7.2%.
+            </p>
+            <p>
+              But what about the defendants, who were both charged with a violent offence and had a series of prior
+              offences?An individual may fight, but an individual may face a violent charge as a one off and hence they
+              are not a risk to society.
+            </p>
+            <p>
+              Similarly, an individual with many misdemeanour charges is not necessarily a a risk to society as well.
+              They may simply be part of a community that's at odds with the police.
+            </p>
+            <p>
+              But arguably, individuals who are likely to be offended with the violent crime are a higher risk to
+              society than individuals with multiple misdemeanours such as possession or drug charges.
+            </p>
+            <p>
+              So we can consider how the proportion of individuals that violently reoffended is affected by the
+              interaction of prior offence and the charged type of offence that was committed, whether it was violent or
+              not.
+            </p>
+            <p>
+              We can immediately see that most individuals fall into the category of reoffending, but not violently.
+            </p>
+            <p>
+              We can look at the data by the proportion of individuals who reoffended violently.
+            </p>
+            <p>
+              If we want to prevent violent crime, because that's the greater business society., looking at the state of
+              that difference from 5.2 to 7.9, that's not very big. The chance of a violent crime if you've had a
+              nonviolent offence is not so different from the population as a whole. But the chance of reoffending
+              violently if you've had a violent offence is greater than the population as a whole.
+            </p>
+            <p>
+              So finally, we're going to look at this graphic here and this graphic we have our two columns and our
+              columns show whether it was a violent offence or not, and our rows show if the individual committed a
+              prior offence or not.
+            </p>
+            <p>
+              We have then got proportions in each of these 44 plots as to whether the reoffence, whether they ended the
+              individual ended up reoffending violently.
+            </p>
+            <p>
+              We could see for individuals with no prior offence - pretty much the same proportion of individuals ended
+              up reoffending violently for those who were charged with a violent offence as those who are charged with
+              nonviolent offence.
+            </p>
+            <p>
+              However, the same cannot be said when we look at prior offences. Here we can see that a higher proportion
+              of individuals were charged, a higher proportion of individuals reoffended violently if they had received
+              that violent charge. Than those who had not received by the charge, and this suggests an interaction.
             </p>
           </div>
         </div>
       </div>
--->
     </div>
   </div>
 
@@ -246,6 +337,7 @@
   </div>
 
   <!-- Section 3 -->
+ <!--
   <div class="section">
     <input type="checkbox" id="accordion3" class="hidecontent" />
     <label class="accordion-label" for="accordion3">
@@ -275,4 +367,28 @@
         </div>
       </div>
     </div>
+-->
 
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Conclusion</h3>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="two-columns">
+          <div class="left-column">
+            <video controls
+              src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/99697943/interactions_hidden_effects.mp4"></video>
+          </div>
+          <div class="right-column">
+            <p class="video-text">
+              This is the essence of where data can mislead: Looked at in a certain way, you can draw one conclusion,
+              and then you might dig a little deeper and find a different story.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>

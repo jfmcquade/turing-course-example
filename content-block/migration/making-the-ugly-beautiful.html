@@ -189,7 +189,7 @@
         </div>
       </div>
 
-      <!--      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
       <label class="accordion-label" for="sub-accordion11">
         <div class="section-header">
           <h4>
@@ -201,12 +201,40 @@
         <div class="one-columns">
           <div class="text-block">
             <p>
-              
+              The case study we’re going to use here is the Amazon case study. And what happened there was that Amazon
+              tried to be very careful to remove gender as part of their prediction in their algorithms to avoid
+              biassing against women in their selection criteria for interviews.
+            </p>
+            <p>
+              But in the data they had, there was all this unidentified variability left, which they didn't find other
+              explanations for in their algorithm. And so whenever the machine learning was let loose, it it looked at
+              the data and they said, oh, I've done it, I've identified differentiation, I've managed to find a way to
+              identify some of the variability and to account for it.
+            </p>
+            <p>
+              And so whatever Amazon did, it would always come back to looking at the data, seeing the variability in
+              the data, and the machine learning algorithms learn: I can separate these, it's basically separated by
+              gender.
+            </p>
+            <p>
+              So the fact that they're taking gender out of their algorithms didn't mean that they're taking that
+              variability out. That accounted for that variability in other ways in their data and therefore the machine
+              learning algorithms did their job perfectly. They kept finding it again and again and again. It accounted
+              for the variability and and so it was working how machine learning algorithms are set up to do. It
+              identified some of the unidentified variability and accounted for it.
+            </p>
+            <p>
+              And they did it perfectly, even if that didn’t give what was desired, and so the whole AI that was
+              designed by them was scrapped. That's separate issue!
+            </p>
+            <p>
+              But, this is what data scientist does. We have people who work with data, and machine learning algorithms
+              who are trying to improve our models understanding from the data. And we're trying to understand the
+              unidentified variability.
             </p>
           </div>
         </div>
       </div>
--->
     </div>
   </div>
 
@@ -225,12 +253,12 @@
       <div class="one-column">
         <div class="text-block">
           <p>
-            In the <a hreft="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=335" target="_blank">Course
-              Overview</a>, the notion of good, bad, and ugly variability was introduced. The
-            so-called “ugly” variability is the variability that could be identified, but has not yet been accounted
-            for. The aim is to minimise this type of variability so that we have as much “good” (accounted for)
-            variability, with the remainder being just “bad” (natural) variability . Good and bad variability are both
-            considered beautiful in their own ways.
+            In the <a href="https://learn.turing.ac.uk/course/view.php?id=25&amp;sectionid=335" target="_blank">Course
+              Overview</a>, the notion of good, bad, and ugly variability was introduced. The so-called “ugly”
+            variability is the variability that could be identified, but has not yet been accounted for. The aim is to
+            minimise this type of variability so that we have as much “good” (accounted for) variability, with the
+            remainder being primarily with the remainder being just “bad” (natural) variability. Good and bad
+            variability are both considered beautiful in their own ways.
           </p>
           <p>
             The unidentified, or “ugly”, variability can be made beautiful in a number of different ways. <strong>In
@@ -238,16 +266,16 @@
               unidentified variability</strong>.
           </p>
           <p>
-            When looking at existing variables within a data set, a data scientist is digging deeper into their data set
-            often using statistical methods. There is often a lot that can be done by fitting models carefully and
-            insightfully to reduce the unidentified variability. Progress made in this approach is generally transparent
-            and explainable because it is coming from the data.
+            Within a data set, when processing the existing variables, a data scientist is digging deeper into the data,
+            and transformations of the variables are often included. A lot can be done by fitting models carefully and
+            insightfully, to reduce the unidentified variability. Progress through this approach is generally
+            transparent and easily explained, because it comes directly from the data.
           </p>
           <p>
             Looking beyond the variables in the data is where machine learning algorithms come into their own. This is
-            extremely powerful because with abundant data there is almost always more accountable complexity than
-            variables to explain it. The ability to identify potentially ‘hidden variables’, that are not in the data
-            set, that account for variability transforms what is possible to achieve in the analysis. However, some
+            extremely powerful because with abundant data there is almost always more explainable complexity than
+            variables to account for it. The ability to identify potentially ‘hidden variables’, that are not in the
+            data set, that account for variability transforms what is possible to achieve in the analysis. However, some
             machine learning methods imply the use of mathematical transformations and methods which unavoidably include
             black box elements which are not transparent or easily explainable.
           </p>
@@ -419,10 +447,15 @@
       </div>
     </label>
     <div class="accordion-content hidecontent">
-      <div class="one-columns">
-        <div class="text-block">
-          <p>
-
+      <div class="two-columns">
+        <div class="left-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/879328052/ugly_beautiful_conclusion.mp4"></video>
+        </div>
+        <div class="right-column">
+          <p class="video-text">
+            We will always have these three types of variability, but our role as data scientists is to minimise, and
+            try to understand and account for, the unidentified variability.
           </p>
         </div>
       </div>
