@@ -95,6 +95,25 @@
     width: 100%;
   }
 
+  button.inline-button {
+    background-color: lightgrey;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 8px;
+    margin: 0.5rem;
+  }
+
+  button.inline-button:hover {
+    background: gray;
+  }
+
   @media only screen and (max-width: 1000px) {
     .two-columns {
       flex-direction: column;
@@ -138,7 +157,7 @@
 
   .content-block input:checked+.accordion-label+.accordion-content {
     display: block;
-    webkit-animation: fadeIn 0.5s ease-out;
+    -webkit-animation: fadeIn 0.5s ease-out;
     -moz-animation: fadeIn 0.5s ease-out;
     -o-animation: fadeIn 0.5s ease-out;
     animation: fadeIn 0.5s ease-out;
@@ -184,6 +203,7 @@
             variable, which lead to a lot of the controversy of COMPAS. This
             video explains the concept of balanced data.
           </p>
+          <button class="inline-button" onclick="window.open('https://google.com', '_blank')">Go to google</button>
         </div>
         <div class="right-column">
           <video controls src="./example_video.mp4"></video>
