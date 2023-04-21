@@ -1,0 +1,454 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=252" target="_blank">Protein
+            Folding case study</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            The Protein Folding example is a wonderful example where a whole suite of different methods have thrown at
+            the problem. This video looks at what is the right question
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/162837149/whats_the_right_question.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              What's the right question? What does that even mean?
+            </p>
+            <p>
+              The protein folding example is a really nice case to look at this problem of "What's the right question".
+              And this is a great example to say, actually, "What goes right if you ask the right question?" If you
+              formulate the question well, and ask the quetion in the right way, then the methods follow.
+            </p>
+            <p>
+              In this particular case, they did so well at identifying questions that could then be assessed, and
+              because they were being assessed relatively independently, the method didn't matter. Therefore, lots of
+              different methods could be used and thrown at the problem and assessed independently, and you weren't just
+              applying a technique to a problem, but lots of different methods to a problem.
+            </p>
+            <p>
+              And that is what was so wonderful in this protein folding case: They had a whole set of methods thrown at
+              it! Different people use different methods, they come at the same problem from different angles. And the
+              protein folding example is such a powerful instance where, by clearly defining a question which was of
+              importance and asking the right question for what was needed, you can then see which methods are able to
+              add value, and are able to move us forward related to this question.
+            </p>
+            <p>
+              If you identify the right question, the methods follow. The methods aren't what's important because the
+              question determines every thing. And this protein folding example is a great case to show that.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          For responsible AI, data scientists benefit from a rich toolbox and from understanding the intricacies of
+          their question.
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            AI is a fast moving discipline with researchers rapidly developing new tools and methods. The latest tools
+            available are inherently a step forward for use cases related to the specific advances that have been made.
+            However, they are often only relevant in the context for which they have been designed, each analytic method
+            is able to provide answers to precise questions.
+          </p>
+          <p>
+            Data scientists benefit from a rich toolbox and from understanding the intricacies of the question they are
+            needing to answer so that they can define how to compare and evaluate the usefulness of a wide range of
+            analytic approaches for their needs. Some of this comparison can happen based purely on a conceptual
+            understanding of methods, but for complex analytic problems there has been success in defining evaluation
+            criteria and having teams use different methods to ‘compete’ as part of the comparison process.
+          </p>
+          <p>
+            It is important to have team members who can bridge the gap between the real question, <strong>the context
+              in which the product will be used, and the technical methods which are being evaluated</strong>. It is
+            also important for data scientists to understand the range of roles they may be expected to play to
+            contribute to building responsible AI products.
+          </p>
+          <p>
+            The need for data scientists with an abstract understanding of a wide range of tools is clear in many cases.
+            However this does not negate the value of specialist data scientists who are experts with a specific tool
+            and who are part of a broader team working on a problem.
+          </p>
+          <p>
+            For bigger projects with competitive comparative processes it is important to limit the competition between
+            methods to specific questions as different questions will change the evaluation criteria and hence the
+            relative success of the methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h3>Illustrative example</h3>
+        <h4>
+          Illustrative example to highlight different methods for answering a question
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <h4>A longitudinal placebo-controlled trial of drug treatments for schizophrenia</h4>
+          <p>
+            This video gives a small trailor to the example used in this section on a placebo-controlled trial of drug
+            treatments for schizophrenia. This example is used to illustrate the importance of using different methods
+            when answering a question.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/648070134/illustrative_question_panss.mp4"></video>
+        </div>
+      </div>
+      <div class="one-column">
+        <div class="text-block">
+          <h4>Background</h4>
+          <p>
+            In this trial, schizophrenia patients were randomised to one of three treatments – placebo and two active
+            treatments, haloperidol and risperidone – and followed up for up to 8 weeks.
+          </p>
+          <p>
+            At weeks 0, 1, 2, 4, 6 and 8 weeks post-randomisation, each patient’s mental state was assessed using a
+            validated questionnaire instrument the Positive and Negative Symptom Score (PANSS). The objective of the
+            trial was to assess which, if either, of the active treatments could reduce the average value of PANSS by at
+            least 20%. In Figure 1 are the PANSS results for the 50 patients. Frankly, this visualisation of the data is
+            a mess – for good reason, a plot of this kind is called a “spaghetti plot.” Possibly the only thing you can
+            see clearly is that there is a general tendency for PANSS scores to decrease over time. So far, so good.
+          </p>
+          <img
+            src="https://lh3.googleusercontent.com/CWfCCD0P1GmbuD-y-XkMVd9vMdORHqGlO-4fI468tKJ5_WdeYDaqTevpX_Z05hCJWSBfu2ibv7EmXTde4TGUbXup_ZsdNIu9VD5fPEbHf-TZDSEqgxq_FUbnZaACttcyMZJnPsasOmCwVXQiUyWw_EIhpIsSUnQzY4eoaYZBk-121IYvtLKbiy6lDtm9PQ"
+            width="648" height="430">
+          <p>
+            <em>Figure 1: The resulting data from 50 patients in each of the three treatment groups. Black for patients
+              in the placebo group, red for haloperidol and blue for risperidone.</em>
+          </p>
+          <h4>A model for the PANSS data</h4>
+          <p>
+            Our visualisation of the PANSS data suggests that the mean response decreases over time, whilst the
+            longitudinal context leads us to expect that repeated measurements on the same person are correlated. A
+            simple model that captures these features is
+          </p>
+          <p>
+            \[Y_{ij} = \alpha_{k(i)} + \beta_{k(i)} t_j + \gamma_{k(i)} t_j^2 + Z_{ij}\]
+          </p>
+          <p>
+            where \(Y_{ij}\) is the \(j^{\text{th}}\) PANSS measurement on the \(i^{\text{th}}\) person in the trial,
+            \(k(i)=1,2,3\) is the treatment allocation, \(t_j = 0, 1, 2, 4, 6, 8\) is the time of measurement
+            post-randomisation and \(Z_{ij} \sim N(0, \sigma^2)\), and the correlation between any two measurements
+            on the same person is \(\rho\).
+          </p>
+          <h4>Two ways to fit the model</h4>
+          <p>
+            The literature on analysing longitudinal data is extensive, but two of the most widely used methods are:
+          </p>
+          <ol>
+            <li>Generalised estimating equations (GEE, Liang and Zeger, 1986)</li>
+            <ol>
+              <li>In this method, we estimate the parameters of interest, αk and βk, by ordinary least squares but
+                adjust the standard errors to take account of the empirical covariance structure of the residuals;</li>
+            </ol>
+            <li>Linear mixed effects (LME, Laird and Ware, 1982)</li>
+            <ol>
+              <li>In this method, we estimate the model parameters by maximum likelihood, which guarantees efficient
+                estimation under the assumed model.</li>
+            </ol>
+          </ol>
+          <p>
+            Figure 2 displays how both methods perform on the PANSS data.
+          </p>
+          <img
+            src="https://lh6.googleusercontent.com/FHeAf8mK0tQVc8aZvelX7n2m4tbYzMjqXR7ngSD55-NbzxL-HXjTD94qZdc20Fz3Eh49OPF46Md6Io62b2t4ALmDRFhR1hBIf37O9SwezVgLWGOH0yL-CL7YKtmbtpUQU4-kiDfUIebe55ymUqWetwuANfNQ4C6ZVwOK4J0C1ZQtTlo53ph3eKKHi7rcaw"
+            width="778" height="412">
+          <p>
+            <em>Figure 2: The observed mean PANSS scores and the fitted means using generalised estimating equations
+              (left-hand panel) and linear mixed models (right-and panel).</em>
+          </p>
+          <h4>What's going on?</h4>
+          <p>
+            The two methods are estimating different things:
+          </p>
+          <ul>
+            <li>GEE is estimating the mean PANSS scores at each follow-up time among patients who have not yet dropped
+              out;</li>
+            <li>LME is estimating what the mean PANSS scores would have been had there been no dropouts.</li>
+          </ul>
+          <p>
+            Which is correct? They both are. But you have to know which question you are asking, rather than let your
+            method of choice determine the question.
+          </p>
+          <p>
+            As discussed in <a href="https://learn.turing.ac.uk/course/view.php?id=25&amp;section=12#section-12">Course
+              Overview</a>,
+            we can be faced with different causes for missing data. Likelihood-based methods of inference give valid
+            results when missingness is Missing at Random – although you may think this small comfort if it isn’t
+            estimating what you wanted to estimate.
+          </p>
+          <p>
+            In case you find this puzzling, the cartoon below mimics a longitudinal study in which nobody’s results
+            change over time but the higher a patient’s result, the more likely they are to drop out. Consequently, the
+            observed mean (i.e. the GEE estimand, indicated by solid dots) decreases over time, whereas the LME estimand
+            (indicated by the solid black line), which implicitly imputes the missing values from the observed data, is
+            constant.
+          </p>
+          <img
+            src="https://lh3.googleusercontent.com/5E9P8t-xrYJZjQpqhJ0Ju1Ry_wMyfKpluKVewbTwxpI60axPGp6dBgQ3lEy37MabxEGL-y2lmxA1scueA8brN_4uMXddVHVHLQww_I04r4wbTFGDjFYLh-ekdLnt21PIuoGWsoG248tyDS83WvW9ZB4ntCQ17kY2RZSZkcb3VXfwSyHk5Qod7W5k8bxFAw"
+            width="853" height="576">
+          <h4>What should we conclude?</h4>
+          <p>
+            Recall that the stated objective of the trial was to find out which, if either, of the active
+            treatments could reduce the average value of PANSS by at least 20%. Using GEE, the estimated percentage
+            improvements over the eight weeks of follow-up are 20.0% for haloperidol and 19.5% for risperidone, so
+            congratulations to the manufacturers of both drugs appear to be (just) in order.
+          </p>
+          <p>
+            But, the sting in the tail is that the reason most commonly given by patients for dropping out of the
+            trial was “inadequate response to treatment.” That suggests to me that results from GEE paint an
+            over-optimistic picture. Using LME, the estimated percentage improvements over the eight weeks of
+            follow-up are 11.8% for haloperidol and 15.5% for risperidone.
+          </p>
+          <input type="checkbox" id="sub-accordion31" class="hidecontent" />
+          <label class="accordion-label" for="sub-accordion31">
+            <div class="section-header">
+              <h4>References</h4>
+            </div>
+          </label>
+          <div class="accordion-content hidecontent">
+            <div class="one-columns">
+              <div class="text-block">
+                <p>Lancet Global Health, 2022, 10: e398-408</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Conclusion</h3>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="two-columns">
+          <div class="left-column">
+            <video controls
+              src=https://learn.turing.ac.uk/draftfile.php/1490/user/draft/607391311/right_question_conclusion.mp4"></video>
+          </div>
+          <div class="right-column">
+            <p class="video-text">
+              It's not just about the data interpretation, or about understanding the results from a data perspective,
+              it is about understanding what was the right question in the first place. The aim of this topic is to
+              build awareness on the concept of asking the right question, and that collaboration can help work towards
+              answering the right question.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>

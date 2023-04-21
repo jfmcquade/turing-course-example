@@ -1,0 +1,394 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=229" target="_blank">COMPAS
+            case study</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            In <a href="https://learn.turing.ac.uk/course/view.php?id=25&amp;sectionid=253" style="">COMPAS</a>, a risk
+            scoring algorithm was used to assess a criminal defendant’s likelihood of reoffending. Interactions are
+            important when considering complex data such as the COMPAS data. We look through the sample of COMPAS data
+            that is available to us to look into interactions.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/833986851/interactions_case_study%20-%20Made%20with%20Clipchamp.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              We have access to a snippet of the COMPAS data, so can use this data to illustrate interactions.
+            </p>
+            <p>
+              In COMPAS, a risk scoring algorithm was used to assess a criminal dependence likelihood of reoffending.
+              One calculation performed in this algorithm is the violent recidivism scale. This calculation gives a
+              score out of 10 aims to predict the criminal dependence likelihood of committing a violent crime after
+              their release.
+            </p>
+            <p>
+              A higher score indicates that the individual is more likely to commit a violent crime after their release,
+              and hence this person is thought of to be a greater risk for society than an individual with a lower
+              score.
+            </p>
+            <p>
+              There are lots of different variables in this data set, but a few to just point out for this illustration
+              is
+            </p>
+            <p>
+            <ul>
+              <li>The priors count, which is the number of prior offences that each that the individual has committed
+              </li>
+              <li>The charge description. So this is the type of crime committed and the description of the crime and
+                this description is of the crime that they face at this particular point in time
+              </li>
+              <li>Is recid - Whether the individual did end up reoffending or not and</li>
+              <li>is violent recid - whether the individual ended up violently reoffended or not.</li>
+            </ul>
+            </p>
+            <p>
+              So of the individuals who are charged in the data set, 68.6% of them had a prior offence, which already
+              suggests that people who have a prior offence are more likely to reoffend again.
+            </p>
+            <p>
+              If we delve into this data, we could see that those who had a prior offence were more likely to reoffend
+              than those who didn't have a prior offence. 9.2% versus 5.1%.
+            </p>
+            <p>
+              We can group the criminal charge into whether the charge is a violent crime or a non violent crime
+              depending on the description. So of the charges that the individual based 45.7% were charged with a
+              violent offence just under half.
+            </p>
+            <p>
+              The proportional defendants charged with a violent crime is similar to those who are charged with a
+              nonviolent crime if win 8% less at 7.2%.
+            </p>
+            <p>
+              But what about the defendants, who were both charged with a violent offence and had a series of prior
+              offences?An individual may fight, but an individual may face a violent charge as a one off and hence they
+              are not a risk to society.
+            </p>
+            <p>
+              Similarly, an individual with many misdemeanour charges is not necessarily a a risk to society as well.
+              They may simply be part of a community that's at odds with the police.
+            </p>
+            <p>
+              But arguably, individuals who are likely to be offended with the violent crime are a higher risk to
+              society than individuals with multiple misdemeanours such as possession or drug charges.
+            </p>
+            <p>
+              So we can consider how the proportion of individuals that violently reoffended is affected by the
+              interaction of prior offence and the charged type of offence that was committed, whether it was violent or
+              not.
+            </p>
+            <p>
+              We can immediately see that most individuals fall into the category of reoffending, but not violently.
+            </p>
+            <p>
+              We can look at the data by the proportion of individuals who reoffended violently.
+            </p>
+            <p>
+              If we want to prevent violent crime, because that's the greater business society., looking at the state of
+              that difference from 5.2 to 7.9, that's not very big. The chance of a violent crime if you've had a
+              nonviolent offence is not so different from the population as a whole. But the chance of reoffending
+              violently if you've had a violent offence is greater than the population as a whole.
+            </p>
+            <p>
+              So finally, we're going to look at this graphic here and this graphic we have our two columns and our
+              columns show whether it was a violent offence or not, and our rows show if the individual committed a
+              prior offence or not.
+            </p>
+            <p>
+              We have then got proportions in each of these 44 plots as to whether the reoffence, whether they ended the
+              individual ended up reoffending violently.
+            </p>
+            <p>
+              We could see for individuals with no prior offence - pretty much the same proportion of individuals ended
+              up reoffending violently for those who were charged with a violent offence as those who are charged with
+              nonviolent offence.
+            </p>
+            <p>
+              However, the same cannot be said when we look at prior offences. Here we can see that a higher proportion
+              of individuals were charged, a higher proportion of individuals reoffended violently if they had received
+              that violent charge. Than those who had not received by the charge, and this suggests an interaction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          Big data sometimes comes with down-sides as interactions between variables can lead to hidden effects
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            When exploring data, a data scientist may find that there is no effect between an explanatory variable and
+            an outcome variable. However, the value of this variable may still affect the outcome variable.
+          </p>
+          <p>
+            It is good practice and important to explore the individual effect between a variable and the outcome.
+            However, looking only at the individual effect of a variable on the outcome can be misleading when there are
+            interactions. This is especially true if there is structure to the data; for example, with paired data.
+            <strong>As such, data scientists should always be conscious of the possibility of interactions between
+              variables and, if in doubt, investigate</strong>.
+          </p>
+          <p>
+            A variable may be a predictor for an outcome variable when a second (or multiple other) variable is
+            considered. In this case, two phenomena are happening, but are hidden because of the interaction between
+            them. Once disentangled, they become clearer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+ <!--
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h3>Illustrative example</h3>
+        <h4>
+          Illustrative example of [...]
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            Illustrative Example -
+          </p>
+          <p>
+          <ul>
+            <li>Boxplots not showing pairing</li>
+            <li>Boxplot for A and B look the same. But what if the bottom values in boxplot A are going to the top in
+              boxplot B, and vice versa?</li>
+            <li>
+              https://towardsdatascience.com/an-easy-approach-to-visualize-within-subject-data-meaningfully-4da065d9bfe5
+            </li>
+          </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+-->
+
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Conclusion</h3>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="two-columns">
+          <div class="left-column">
+            <video controls
+              src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/99697943/interactions_hidden_effects.mp4"></video>
+          </div>
+          <div class="right-column">
+            <p class="video-text">
+              This is the essence of where data can mislead: Looked at in a certain way, you can draw one conclusion,
+              and then you might dig a little deeper and find a different story.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,388 @@
+<style>
+  .content-block {
+    background: transparent;
+    padding: 0 10%;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    max-width: 1500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .content-block a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  .content-block a:hover {
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .content-block a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .content-block p,
+  .content-block ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .content-block table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content-block table,
+  .content-block th,
+  .content-block td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
+
+  .no-borders table,
+  .no-borders th,
+  .no-borders td {
+    border: none;
+  }
+
+  .two-columns {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .right-column {
+    width: 50%;
+  }
+
+  .one-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .two-columns {
+      flex-direction: column;
+    }
+
+    .left-column {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .right-column {
+      width: 100%;
+    }
+  }
+
+  /* Accordion functionality below */
+  .hidecontent {
+    display: none;
+  }
+
+  .accordion-label {
+    display: block;
+    padding: 8px 22px;
+    margin: 20px 0px 1px 0px;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    transition: ease 0.5s;
+  }
+
+  .accordion-label:hover {
+    background: gray;
+  }
+
+  .accordion-content {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 0 2px;
+    padding: 1.5rem 0;
+  }
+
+  .content-block input:checked+.accordion-label+.accordion-content {
+    display: block;
+    webkit-animation: fadeIn 0.5s ease-out;
+    -moz-animation: fadeIn 0.5s ease-out;
+    -o-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+</style>
+
+<div class="content-block">
+
+  <!-- Section 1 -->
+  <div class="section">
+    <input type="checkbox" id="accordion1" class="hidecontent" />
+    <label class="accordion-label" for="accordion1">
+      <div class="section-header">
+        <h3>Case Study Example</h3>
+        <h4>Part of our <a href="https://learn.turing.ac.uk/course/view.php?id=25&sectionid=231" target="_blank">Ofqual
+            case study</a></h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p class="video-text">
+            Under "A Case Study Approach", the Ofqual case study is introduced. In brief, Ofqual was tasked with
+            creating an algorithm to predict GCSE and A-Level grades for students in England and Wales after
+            examinations were cancelled during the Covid-19 pandemic. In this video, we use the Ofqual case study to
+            illustrate concept on multiple random effects within a data set.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/127879802/N_V_random.mp4"></video>
+        </div>
+      </div>
+
+      <input type="checkbox" id="sub-accordion11" class="hidecontent" />
+      <label class="accordion-label" for="sub-accordion11">
+        <div class="section-header">
+          <h4>
+            <center>Show Video Script</center>
+          </h4>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="one-columns">
+          <div class="text-block">
+            <p>
+              In the Ofqual example, there's there's variability at multiple levels: You have variability at the school
+              level as well as at the individual student level. And so, for different schools there's a natural
+              variability there which is not just an effect of a school, but an effect is random in nature. Hence, each
+              school has a slightly different effect.
+            </p>
+            <p>
+              In different schools you may also have a different variability within the school. Some schools might have
+              a very narrow range of abilities, but might be either a very good school or a very bad school, whereas
+              other schools might have a much wider range of students, going from the very good to very bad. And this
+              might differ between elite schools, comprehensive schools, struggling schools, and so the variability
+              within a school may be different.
+            </p>
+            <p>
+              The Ofqual example is a wonderful case where it is clear that the natural variability is living at
+              different levels. You've got individual variability on how individuals perform. You've also got
+              variability between schools And! there are many other sources of variability within the data that they
+              were trying to analyse.
+            </p>
+            <p>
+              This is something where when we're looking at data, we're almost always trying to understand the natural
+              variability. But that natural variability could be different for different cases or parts of the data.
+              This is one of the difficult aspects: bringing in hierarchical modelling, looking at modelling where there
+              are differences between variability between one case and another case. This is one of the areas where we
+              think about our models differently Natural variability is not random noise, but here it is structured
+              noise. the Natural variability has structure to it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <input type="checkbox" id="accordion2" class="hidecontent" />
+    <label class="accordion-label" for="accordion2">
+      <div class="section-header">
+        <h3>Abstract concept</h3>
+        <h4>
+          Natural variability is not just random noise - it often has structure
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="one-column">
+        <div class="text-block">
+          <p>
+            For any analysis the question of whether the natural variability,, related to the problem,, is purely random
+            or has structure should be considered early on. If important structure in the natural variability is not
+            considered the associated variability will remain unidentified.
+          </p>
+          <p>
+            Hierarchical models capture elements of structure by identifying that natural variability occurs at
+            different ‘levels’. Variables corresponding to these levels are often fitted in the model as "random
+            effects" rather than "fixed effects".
+          </p>
+          <p>
+            There are also cases where certain subsets of the data have substantially different variability. There might
+            be for a variety of reasons a subset could be more or less homogeneous. Another common reason with merged
+            datasets could be related to different measurement methodologies. Whatever the sources of these differences,
+            the consequence is the same, the analysis can be derailed if they are not identified.
+          </p>
+          <p>
+            Large data inevitably contains hidden complexity which can at times derail analysis,, through the law of
+            large numbers. <strong>Data scientists can often gain deep insights by analysing strategic targeted subsets
+              and comparing the natural variability observed in each case</strong>. Insights gained by breaking the data
+            down in this way can often be fed back into a full analysis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <input type="checkbox" id="accordion3" class="hidecontent" />
+    <label class="accordion-label" for="accordion3">
+      <div class="section-header">
+        <h3>Illustrative example</h3>
+        <h4>
+          A longitudinal placebo-controlled trial of drug treatments for schizophrenia
+        </h4>
+      </div>
+    </label>
+    <div class="accordion-content hidecontent">
+      <div class="two-columns">
+        <div class="left-column">
+          <p>
+            This video gives a small trailor to the example used in this section on a placebo-controlled trial of drug
+            treatments for schizophrenia. This example is used to illustrate structure in natural variability.
+          </p>
+        </div>
+        <div class="right-column">
+          <video controls
+            src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/360950770/illustrative_variability_panss.mp4"></video>
+        </div>
+      </div>
+      <div class="one-column">
+        <div class="text-block">
+          <h4>Background</h4>
+          <p>
+            In this trial, patients with severe schizophrenia were randomised to receive either an active treatment or a
+            placebo. They were followed up for up to 8 weeks.
+          </p>
+          <p>
+            At weeks 0, 1, 2, 4, 6 and 8 weeks post-randomisation, each patient’s mental state was assessed using a
+            validated questionnaire instrument the Positive and Negative Symptom Score (PANSS). The objective of the
+            trial was to assess which, if either, of the active treatments could reduce the average value of PANSS by at
+            least 20%.
+          </p>
+          <p>
+            Figure 1 shows a data from six individuals in the randomised trial. Time is on the X-axis, and the measure
+            of the patients symptom severity is on the Y-axis. On the Y-axis, a lower score is good. There are two sets
+            of patients. The patients who received the active treatment are displayed with the dotted lines, and the
+            patients on the placebo are displayed with a solid line.
+          </p>
+          <img src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/730695902/image.png">
+          <p>
+            <em>Figure 1: How the symptoms change for six patients over the course of eight weeks. The patients who
+              received the active treatment are displayed with the dotted lines, and the patients on the placebo are
+              displayed with a solid line.</em>
+          </p>
+          <h4>Random Variability</h4>
+          <p>
+            We want to understand the variability in this data. The first distinction to make is that between random
+            (natural, "bad") variation and systematic (accounted, "good") variation. We can see accountable variation
+            between the two treatments: The solid lines are generally higher than the dotted lines implying that the
+            patients on the active treatment are resulting in less severe symptoms than those on the placebo treatment.
+            This is good: We would hope that the active treatment would reduce symptoms.
+          </p>
+          <p>
+            There is also some random variability here, which displays quite a bit of structure. We can peel off the
+            different layers to this random variation. A good start is to look at the variation between patients on the
+            same treatment, so we can ignore the systematic variation.
+          </p>
+          <p>
+            Of the three patients who are on the active treatment, one consistently gives higher scores than the other
+            two, despite being on the same treatment. This implies some variability between the patients which is
+            sustained over the eight weeks of follow up.
+          </p>
+          <p>
+            In addition, the jagged lines suggest that there's some random variation in what you actually measure at
+            each time point. It seems rather odd to imagine that all of the individual peaks and troughs in these lines
+            are real changes in the patients symptom severity. They're just chance occurrences of the particular exact
+            time at which that measurement was taken.
+          </p>
+          <p>
+            Another, potentially more subtle, element of variability in this data is that one of the six patients only
+            provided data for the first four weeks. It is not unreasonable to assume, and is true in this case, that the
+            patient stopped providing data because they dropped out of the study. And this drop out was not unrelated to
+            the medical condition that the trial was intending to study (more on this is discussed in the Missing Data
+            content block).
+          </p>
+          <p>
+            To best analyse this data, it is important to understand the different layers of random variation in the
+            data, and that it is not just random noise.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <input type="checkbox" id="accordion4" class="hidecontent" />
+      <label class="accordion-label" for="accordion4">
+        <div class="section-header">
+          <h3>Conclusion</h3>
+        </div>
+      </label>
+      <div class="accordion-content hidecontent">
+        <div class="two-columns">
+          <div class="left-column">
+            <video controls
+              src="https://learn.turing.ac.uk/draftfile.php/1490/user/draft/786089616/purely_random_conclusion.mp4"></video>
+          </div>
+          <div class="right-column">
+            <p class="video-text">
+              There's insights that can be gained from having multiple models, with their own residual term. One way to
+              understand if the variability is consistent, or if the variability occurs due to certain effects is by
+              looking at subsets of the data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
