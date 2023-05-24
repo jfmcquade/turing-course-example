@@ -1,0 +1,198 @@
+.content-block {
+  background: transparent;
+  padding: 0 10%;
+  color: black;
+  height: 100vh;
+  width: 100%;
+  max-width: 1500px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-block a:link {
+  color: blue;
+  text-decoration: underline;
+}
+
+.content-block a:visited {
+  color: purple;
+  text-decoration: underline;
+}
+
+.content-block a:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.content-block a:active {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.section {
+  width: 100%;
+}
+
+.content-block p,
+.content-block ul {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.content-block table {
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+}
+
+.content-block table,
+.content-block th,
+.content-block td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+
+.no-borders table,
+.no-borders th,
+.no-borders td {
+  border: none;
+}
+
+.two-columns {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.left-column {
+  width: 50%;
+  margin-right: 2rem;
+}
+
+.right-column {
+  width: 50%;
+}
+
+.one-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+video {
+  height: auto;
+  width: 100%;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+button.inline-button {
+  background-color: lightgrey;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 0.5rem;
+}
+
+button.inline-button:hover {
+  background: gray;
+}
+
+@media only screen and (max-width: 1000px) {
+  .two-columns {
+    flex-direction: column;
+  }
+
+  .left-column {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .right-column {
+    width: 100%;
+  }
+}
+
+/* Accordion functionality below */
+.hidecontent {
+  display: none;
+}
+
+.accordion-label {
+  display: block;
+  padding: 8px 22px;
+  margin: 20px 0px 1px 0px;
+  cursor: pointer;
+  background: lightgray;
+  color: black;
+  transition: ease 0.5s;
+}
+
+.accordion-label:hover {
+  background: gray;
+}
+
+.accordion-content {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-width: 0 0 2px;
+  padding: 1.5rem 0;
+}
+
+.content-block input:checked + .accordion-label + .accordion-content {
+  display: block;
+  -webkit-animation: fadeIn 0.5s ease-out;
+  -moz-animation: fadeIn 0.5s ease-out;
+  -o-animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  };
+
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
